@@ -9,9 +9,10 @@ keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Pow
 subcollection: powervs_watsonx_toolkit
 
 ---
+{{site.data.keyword.attribute-definition-list}}
 
 # Toolkit for Leveraging watsonx with PowerVS for NLP2SQL use case
-{: #about}
+{: #title}
 
 ## API-based Toolkit for NLP2SQL use-case
 {: #about}
@@ -33,7 +34,7 @@ With ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Whethe
 
 
 #### Reference Architecture
-{: #Achitecture-Diagram}
+{: #achitecture-diagram}
 
 ![Reference Architecture](images/ToolkitRefArchitecture.svg){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
 
