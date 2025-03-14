@@ -1,0 +1,317 @@
+---
+
+copyright:
+  years: 2022
+lastupdated: "2025-02-27"
+
+keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Power virtual server
+
+subcollection: powervs_watsonx_toolkit
+
+---
+
+# Toolkit for Leveraging watsonx with PowerVS for NLP2SQL use case
+{: #about}
+
+## API-based Toolkit for NLP2SQL use-case
+{: #about}
+
+The NLP2SQL Toolkit serves as a structured set of tools and resources, designed to expedite AI adoption by integrating watsonx with PowerVS for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it's a holistic approach geared towards reducing the time spent on development, amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
+
+The Toolkit converts simple text-based questions—such as "What were the top-selling products last quarter?"—into SQL queries that retrieve the necessary data. This eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time required to bring these new features to fruition.
+
+With ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Whether it's a sales manager evaluating product performance or a finance team monitoring revenue trend, this AI-powered tool makes data analysis more accessible, efficient, and actionable for everyone.
+
+### Key Benefits
+{: #Benefits}
+
+- *Accelerated Development Timelines:* Since it is designed to be modular, Toolkit minimizes the effort and time required for AI integration within enterprise applications.
+- *Enhanced Reusability:* Leverage the modular architecture to reuse individual components across multiple use cases, such as user interfaces.
+- *Secure Insights:* Gain valuable insights from mission-critical data without migrating it, ensuring data stays secure within your enterprise.
+
+
+
+
+#### Reference Architecture
+{: #Achitecture-Diagram}
+
+![Reference Architecture](images/ToolkitRefArchitecture.svg){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
+
+
+The above reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
+
+RedHat OpenShift Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
+
+The overall structure is divided into several components:
+-   Databases which have mission critical data on Power VS
+-   An Enterprise Application for example a core banking enterprise application
+-   API-based NLP2SQL Toolkit and
+-   watsonx AI Services.
+
+Databases supported include SAP HANA, Oracle and Postgres SQL which interact with the Enterprise Application.
+
+The Toolkit comprises three main layers:
+-   Gen AI Asst - UI layer
+-   API Layer
+-   Database Layer.
+
+These layers facilitate API calls and NLP queries, converting natural language inputs into SQL statements.
+
+The watsonx.ai services, provided by IBM Cloud SaaS, include foundation models, prompt lab, and watsonx machine learning, which support the Toolkit by deploying pre-packaged LLM models and tuning them as needed.
+
+Overall, the diagram conveys a modular and scalable architecture designed to integrate watsonx.ai and PowerVS functionalities seamlessly.
+
+
+##### Installation
+{: #How-to-install}
+
+Below instructions will help to install and set up Toolkit on PowerVS leveraging watsonx.ai services
+
+The below instruction are not platform specific and any platform-specific library decencies has to be resolved by self
+{: note}
+
+Step 1: Login to VM, git clone the Toolkit repo (https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+
+Step 2: Ensure python3.8+ and pip is installed
+
+```sh
+python -version
+```
+OR
+```sh
+python3 -version
+pip version
+```
+If python or pip is not installed, download Python from python.org and pip will typically come bundled with it.
+
+Step 3: Install packages from requirements.txt (present in the code)
+
+```sh
+#pip install -r requirements.txt
+```
+`Requirements.txt`
+```sh
+flask
+gevent
+python-dotenv
+psycopg2
+flask_cors
+oracledb
+hdbcli
+```
+
+When working with different database systems in python, specific adapters and extension modules are required to establish connections and execute database operations.
+
+-   psycopg2: A database adapter that follows the DB API 2.0 standard, designed specifically for PostgreSQL. It is essential for interacting with PostgreSQL databases.
+-   oracledb: A python extension module that enables seamless connections to Oracle databases, allowing efficient data access and manipulation.
+-   hdbcli: A dedicated python extension module for SAP HANA, facilitating integration and database operations.
+
+By default, Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HANA. If your project does not involve PostgreSQL, Oracle, or SAP HANA, you can simply exclude psycopg2, oracledb, or hdbcli from the requirements.txt file, keeping dependencies minimal and relevant.
+
+Step 4: Ensure all packages are installed correctly by listing installed packages:
+
+`pip list`
+
+Step 5: Go to the folder “watsonx-integration-server” open the configuration files and update accordingly
+
+
+`Config.ini`
+```sh
+[apiserver]
+port=2005
+
+[llmurl]
+url=https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29
+
+[apikey]
+api_key=LKFMSDLFSFXXXXXXXXXXXXrV
+```
+
+
+
+-   [apiserver]
+    Port: Provide the port number at which the flask server must run
+
+-   [llmurl]
+    url: Provide the LLM scoring endpoint deployed on watsonx
+
+-   [apikey]
+    api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and use it to create temporary access tokens.
+
+
+`resp_config.json`
+```sh
+{
+    "type": "agent",
+    "sections": [
+        {
+            "type": "text",
+            "data": "I have found the following transactions based on your request."
+        },
+        {
+            "type": "table",
+            "data": []
+        }
+    ]
+}
+```
+
+The `resp_config.json` file defines the expected structured response format from an LLM that interacts with the toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring easy integration with API layer.
+
+`type: "agent"`: Indicates that the response is coming from an AI agent.
+`sections`: A list that contains different types of response elements.
+
+-	First section:
+
+```sh
+{
+            "type": "text",
+            "data": "I have found the following transactions based on your request."
+        },
+```
+
+
+-     type: "text" → This section contains textual data.
+-     data: A string message informing the user about retrieved transactions.
+
+- Second section:
+
+```text
+{
+            "type": "table",
+            "data": []
+        }
+```
+
+-     type: "text" → This section contains textual data.
+-     data: A string message informing the user about retrieved  transactions (editable for custom message).
+-   Second section:
+
+```sh
+{
+            "type": "table",
+            "data": []
+        }
+```
+-     type: "table" → This section is meant to hold tabular data.
+-     data: [] (Empty array) → In case no transactions were found.
+
+`llm_params_config.json`
+```sh
+{
+  "input": "You are a developer writing SQL queries given natural language questions. The database contains a set of 3 tables. The schema of each table with description of the attributes is given. Write the SQL query given a natural language statement with names being not case sensitive
+Here are the 3 tables :
+1)	Database Table Name: USERS
+Table Schema:
+Column Name # Meaning
+user_id # unique identifier of the user,
+user_type_id # user is 'employee','customer'
+gender_id # user's gender is 1 for female, 2 for male and 3 for other
+dob # date of birth of the user
+address # address of the user
+state # state of the user
+country # country of residence of the user
+pincode # postalcode of the user residence
+email # email address of the user
+first_name # first name of the user
+last_name # last name of the user
+2)	Database Table Name: ACCOUNTS
+Table Schema:
+Column Name # Meaning
+acc_id # account number or account id of the user
+u_id # user id of the user
+balance # available balance in the account
+3)	Database Table Name: TRANSACTIONS
+Table Schema:
+Column Name # Meaning
+transaction_id # unique id for the transaction
+tran_type_id # transaction type is 1 for debit and 2 for credit
+transaction_amount # amount transferred from from_acc_id to to_acc_id
+tran_date # date and time of the transaction
+status_type_id # status of the transaction is 1 for Success and 2 for Failed
+from_acc_id # account number from which the transaction is initiated
+to_acc_id # account number to which the transaction is targeted
+fraud_score # score to indicate if the transaction is fraudulent or not, 1 is fraud and 0 is not fraud
+fraud_category # fraud category is 1 for location, 2 for amount
+
+Input: List fraudulent transactions in last two days
+Output: select * from transactions, accounts, users where transactions.from_acc_id=accounts.acc_id and accounts.u_id=users.user_id and transactions.fraud_score=1 and transactions.tran_date>=date(now())-interval '2 day';
+ Input: {user_query}\nOutput:",
+
+"parameters": {
+    "decoding_method": "greedy",
+    "max_new_tokens": 100,
+    "repetition_penalty": 1
+  },
+"model_id": "mistralai/mixtral-8x7b-instruct-v01",
+ "project_id": "1ab727c4-4c22-4d9b-8fce-398febec3c5c",
+
+
+"moderations": {
+    "hap": {
+      "input": {
+        "enabled": true,
+        "threshold": 0.5,
+        "mask": {
+          "remove_entity_value": true
+        }
+```
+
+
+The Json structure here constitutes the body of the request sent to watsonx.ai service. Below is the description: -
+- input: Contains a text prompt formatted in a specific syntax indicating roles and their inputs. Can include database schema with sample NLP statement and equivalent SQL
+- Query parameters: This object contains various parameters for the text generation process:
+-   decoding_method: The method used to generate the text. In this case, it's set to "greedy".
+-   max_new_tokens: The maximum number of new tokens (words) to generate. Here, it is set to 100.
+-   repetition_penalty: A value that discourages the model from repeating the same text. Here, it is set to 1.
+- model_id: The ID of the model to use for text generation
+- project_id: The ID of the project associated with the model.
+- moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
+
+
+Step 6: Go to the folder “database-integration-service” open the database configuration file `config.ini` and update accordingly
+
+`config.ini`
+```sh
+[database]
+dbtype=1
+user=bnk_db
+password=xxxx
+host=xx.xx.xx.xx
+port=2005
+dbname=bankdb
+```
+
+Below are the values for different databases: -
+-	dbtype  = 1 for Oracle DB
+-	dbtype  = 2 for postgres
+-	dbtype  = 3 for HANA DB
+
+where
+- User: username used to authenticate with the database.
+- Password: password associated with the username
+- Host: host / IP address where the database is located
+- Port: port number where the database is listening for connections
+- Dbname: Name of the database and in case of SAP HANA it also serves as the schema name
+
+Open the file `database_integrate.py` and comment the lines based on the databases you are not using (Oracle, PostgreSQL, or SAP HANA):
+
+```sh
+import oracledb
+import psycopg2
+from hdbcli import dbapi
+```
+
+Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown below :
+
+`FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=5001 flask run`
+
+Sample output:
+
+![Sample Output](images/step7-sample-output.png){: caption="sample output" caption-side="bottom" }{: style="text-align: center;"}
+
+Step 8: To set up Gen AI Assistant follow the instructions in the below readme link
+
+https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md
+
+Demo video of the Toolkit: HERE
