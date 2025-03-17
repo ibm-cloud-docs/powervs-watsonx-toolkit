@@ -11,48 +11,46 @@ subcollection: powervs_watsonx_toolkit
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Toolkit for Leveraging watsonx with PowerVS for NLP2SQL use case
-{: #title}
+# NLP2SQL Toolkit: Watsonx and {{site.data.keyword.powerSys_notm}}
+{: #NLP2SQL}
 
 ## API-based Toolkit for NLP2SQL use-case
 {: #about}
 
-The NLP2SQL Toolkit serves as a structured set of tools and resources, designed to expedite AI adoption by integrating watsonx with PowerVS for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it's a holistic approach geared towards reducing the time spent on development, amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
+The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
 
-The Toolkit converts simple text-based questions—such as "What were the top-selling products last quarter?"—into SQL queries that retrieve the necessary data. This eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time required to bring these new features to fruition.
+The Toolkit converts simple text-based questions such as 'What were the top-selling products last quarter?' into SQL queries that retrieve the necessary data. The use of this toolkit eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time that is required to implement these new features to fruition.
 
-With ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Whether it's a sales manager evaluating product performance or a finance team monitoring revenue trend, this AI-powered tool makes data analysis more accessible, efficient, and actionable for everyone.
+With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Whether it's a sales manager, assessing product performance, or a finance team monitor revenue trend, this AI-powered tool makes data analysis more accessible, efficient, and actionable for all.
 
-### Key Benefits
+## Key Benefits
 {: #Benefits}
 
-- *Accelerated Development Timelines:* Since it is designed to be modular, Toolkit minimizes the effort and time required for AI integration within enterprise applications.
-- *Enhanced Reusability:* Leverage the modular architecture to reuse individual components across multiple use cases, such as user interfaces.
-- *Secure Insights:* Gain valuable insights from mission-critical data without migrating it, ensuring data stays secure within your enterprise.
+- **Accelerated development timelines:** Since it is modular, Toolkit minimizes the effort and time that is required for AI integration within enterprise applications.
+- **Enhanced reusability:** Use the modular architecture to reuse individual components across multiple use cases, such as user interfaces.
+- **Secure insights:** Gain valuable insights from mission-critical data without migrating it, ensuring data stays secure within your enterprise.
 
 
-
-
-#### Reference Architecture
+## Reference Architecture
 {: #achitecture-diagram}
 
-![Reference Architecture](images/ToolkitRefArchitecture.svg){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
+![Reference Architecture](images/ToolkitRefArchitecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
 
 
-The above reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
+The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
 
-RedHat OpenShift Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
+Red Hat OpenShift Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
 
 The overall structure is divided into several components:
--   Databases which have mission critical data on Power VS
--   An Enterprise Application for example a core banking enterprise application
+-   Databases, which have mission-critical data on {{site.data.keyword.powerSys_notm}}
+-   An Enterprise Application, for example, a core banking enterprise application
 -   API-based NLP2SQL Toolkit and
--   watsonx AI Services.
+-   Watsonx AI Services.
 
-Databases supported include SAP HANA, Oracle and Postgres SQL which interact with the Enterprise Application.
+Databases that are supported include SAP HANA, Oracle, and Postgres SQL, which interact with the Enterprise Application.
 
 The Toolkit comprises three main layers:
--   Gen AI Asst - UI layer
+-   Gen AI Assistant - UI layer
 -   API Layer
 -   Database Layer.
 
@@ -60,20 +58,20 @@ These layers facilitate API calls and NLP queries, converting natural language i
 
 The watsonx.ai services, provided by IBM Cloud SaaS, include foundation models, prompt lab, and watsonx machine learning, which support the Toolkit by deploying pre-packaged LLM models and tuning them as needed.
 
-Overall, the diagram conveys a modular and scalable architecture designed to integrate watsonx.ai and PowerVS functionalities seamlessly.
+Overall, the diagram conveys a modular and scalable architecture that is designed to integrate watsonx.ai and {{site.data.keyword.powerSys_notm}} functions seamlessly.
 
 
-##### Installation
+## Installation
 {: #How-to-install}
 
-Below instructions will help to install and set up Toolkit on PowerVS leveraging watsonx.ai services
+The following instructions help to install and set up Toolkit on {{site.data.keyword.powerSys_notm}} integrating with watsonx.ai services
 
-The below instruction are not platform specific and any platform-specific library decencies has to be resolved by self
+The following instructions are not platform specific and any platform-specific library decencies must be resolved by self
 {: note}
 
-Step 1: Login to VM, git clone the Toolkit repo (https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+Step 1: Log in to the VM, Git clone the Toolkit repo (https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
 
-Step 2: Ensure python3.8+ and pip is installed
+Step 2: Ensure Python3.8+ and pip is installed
 
 ```sh
 python -version
@@ -83,12 +81,12 @@ OR
 python3 -version
 pip version
 ```
-If python or pip is not installed, download Python from python.org and pip will typically come bundled with it.
+If Python or pip is not installed, download Python from python.org and pip typically come bundled with it.
 
 Step 3: Install packages from requirements.txt (present in the code)
 
 ```sh
-#pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 `Requirements.txt`
 ```sh
@@ -101,19 +99,21 @@ oracledb
 hdbcli
 ```
 
-When working with different database systems in python, specific adapters and extension modules are required to establish connections and execute database operations.
+Working with different database systems in Python, specific adapters and extension modules are required to establish connections and run database operations.
 
--   psycopg2: A database adapter that follows the DB API 2.0 standard, designed specifically for PostgreSQL. It is essential for interacting with PostgreSQL databases.
--   oracledb: A python extension module that enables seamless connections to Oracle databases, allowing efficient data access and manipulation.
--   hdbcli: A dedicated python extension module for SAP HANA, facilitating integration and database operations.
+-   'psycopg2': A database adapter that follows the DB API 2.0 standard, which is designed specifically for PostgreSQL. It is essential for interacting with PostgreSQL databases.
+-   'oracledb': A Python extension module that enables seamless connections to Oracle databases, allowing efficient data access and manipulation.
+-   'hdbcli': A dedicated Python extension module for SAP HANA, facilitating integration and database operations.
 
-By default, Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HANA. If your project does not involve PostgreSQL, Oracle, or SAP HANA, you can simply exclude psycopg2, oracledb, or hdbcli from the requirements.txt file, keeping dependencies minimal and relevant.
+By default, the Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HANA. If your project does not involve PostgreSQL, Oracle, or SAP HANA, you can exclude psycopg2, oracledb, or hdbcli from the requirements.txt file, keeping dependencies minimal and relevant.
 
-Step 4: Ensure all packages are installed correctly by listing installed packages:
+Step 4: Ensure that all packages are installed correctly by listing installed packages:
 
-`pip list`
+```sh
+pip list
+```
 
-Step 5: Go to the folder “watsonx-integration-server” open the configuration files and update accordingly
+Step 5: Go to the folder “watsonx-integration-server” open the configuration files and update the following parameters:
 
 
 `Config.ini`
@@ -130,14 +130,17 @@ api_key=LKFMSDLFSFXXXXXXXXXXXXrV
 
 
 
--   [apiserver]
-    Port: Provide the port number at which the flask server must run
+- [apiserver]
 
--   [llmurl]
-    url: Provide the LLM scoring endpoint deployed on watsonx
+Port: Provide the port number at which the flask server must run
 
--   [apikey]
-    api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and use it to create temporary access tokens.
+- [llmurl]
+
+url: Provide the LLM scoring endpoint deployed on watsonx
+
+- [apikey]
+
+api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and use it to create temporary access tokens.
 
 
 `resp_config.json`
@@ -157,12 +160,12 @@ api_key=LKFMSDLFSFXXXXXXXXXXXXrV
 }
 ```
 
-The `resp_config.json` file defines the expected structured response format from an LLM that interacts with the toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring easy integration with API layer.
+The `resp_config.json` file defines the expected structured response format from an LLM that interacts with the toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring seamless integration with API layer.
 
-`type: "agent"`: Indicates that the response is coming from an AI agent.
+`type: "agent"`: Indicate that the response is coming from an AI agent.
 `sections`: A list that contains different types of response elements.
 
--	First section:
+-	**First section:**
 
 ```sh
 {
@@ -172,21 +175,10 @@ The `resp_config.json` file defines the expected structured response format from
 ```
 
 
--     type: "text" → This section contains textual data.
--     data: A string message informing the user about retrieved transactions.
+- Type: "text" - This segment holds written information.
+- Data: A string message informs the user about retrieved transactions.
 
-- Second section:
-
-```text
-{
-            "type": "table",
-            "data": []
-        }
-```
-
--     type: "text" → This section contains textual data.
--     data: A string message informing the user about retrieved  transactions (editable for custom message).
--   Second section:
+- **Second section:**
 
 ```sh
 {
@@ -194,8 +186,8 @@ The `resp_config.json` file defines the expected structured response format from
             "data": []
         }
 ```
--     type: "table" → This section is meant to hold tabular data.
--     data: [] (Empty array) → In case no transactions were found.
+- Type: "table" - This segment is meant to hold tabular data.
+- Data: [] (Empty array) - In case no transactions were found.
 
 `llm_params_config.json`
 ```sh
@@ -259,10 +251,10 @@ Output: select * from transactions, accounts, users where transactions.from_acc_
 ```
 
 
-The Json structure here constitutes the body of the request sent to watsonx.ai service. Below is the description: -
-- input: Contains a text prompt formatted in a specific syntax indicating roles and their inputs. Can include database schema with sample NLP statement and equivalent SQL
+The JSON structure here constitutes the body of the request, sent to the watsonx.ai service. Descriptions listed:
+- input: Contain a text prompt formatted in a specific syntax, indicating roles and their inputs. Can include a database schema with sample NLP statement and equivalent SQL
 - Query parameters: This object contains various parameters for the text generation process:
--   decoding_method: The method used to generate the text. In this case, it's set to "greedy".
+-   decoding_method: The method used to generate the text. In this case, it is set to "greedy".
 -   max_new_tokens: The maximum number of new tokens (words) to generate. Here, it is set to 100.
 -   repetition_penalty: A value that discourages the model from repeating the same text. Here, it is set to 1.
 - model_id: The ID of the model to use for text generation
@@ -270,7 +262,7 @@ The Json structure here constitutes the body of the request sent to watsonx.ai s
 - moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
 
 
-Step 6: Go to the folder “database-integration-service” open the database configuration file `config.ini` and update accordingly
+Step 6: Go to the folder “database-integration-service” open the database configuration file `config.ini` and update the following fields:
 
 `config.ini`
 ```sh
@@ -279,21 +271,21 @@ dbtype=1
 user=bnk_db
 password=xxxx
 host=xx.xx.xx.xx
-port=2005
+port=9476
 dbname=bankdb
 ```
 
-Below are the values for different databases: -
+The following are the values for different databases:
 -	dbtype  = 1 for Oracle DB
 -	dbtype  = 2 for postgres
 -	dbtype  = 3 for HANA DB
 
-where
+Where
 - User: username used to authenticate with the database.
 - Password: password associated with the username
 - Host: host / IP address where the database is located
 - Port: port number where the database is listening for connections
-- Dbname: Name of the database and in case of SAP HANA it also serves as the schema name
+- Dbname: Name of the database or if SAP HANA is the database, it also serves as the schema name
 
 Open the file `database_integrate.py` and comment the lines based on the databases you are not using (Oracle, PostgreSQL, or SAP HANA):
 
@@ -303,15 +295,17 @@ import psycopg2
 from hdbcli import dbapi
 ```
 
-Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown below :
+Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
 
-`FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=5001 flask run`
+```sh
+FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=5001 flask run
+```
 
 Sample output:
 
 ![Sample Output](images/step7-sample-output.png){: caption="sample output" caption-side="bottom" }{: style="text-align: center;"}
 
-Step 8: To set up Gen AI Assistant follow the instructions in the below readme link
+Step 8: To set up gen AI Assistant, follow the instructions in the readme file link
 
 https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md
 
