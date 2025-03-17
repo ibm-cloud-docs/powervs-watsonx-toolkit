@@ -11,7 +11,7 @@ subcollection: powervs_watsonx_toolkit
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# NLP2SQL Toolkit: Watsonx and {{site.data.keyword.powerSys_notm}}
+# NLP2SQL Toolkit: Watsonx and {{site.data.keyword.powerSysFull}}
 {: #NLP2SQL}
 
 ## API-based Toolkit for NLP2SQL use-case
@@ -19,7 +19,7 @@ subcollection: powervs_watsonx_toolkit
 
 The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
 
-The Toolkit converts simple text-based questions such as 'What were the top-selling products last quarter?' into SQL queries that retrieve the necessary data. The use of this toolkit eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time that is required to implement these new features to fruition.
+The Toolkit converts simple text-based questions such as What were the top-selling products last quarter? into SQL queries that retrieve the necessary data. The use of this toolkit eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time that is required to implement these new features to fruition.
 
 With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Whether it's a sales manager, assessing product performance, or a finance team monitor revenue trend, this AI-powered tool makes data analysis more accessible, efficient, and actionable for all.
 
@@ -39,7 +39,7 @@ With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Wh
 
 The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
 
-Red Hat OpenShift Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
+{{site.data.keyword.redhat_openshift_full:}} Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
 
 The overall structure is divided into several components:
 -   Databases, which have mission-critical data on {{site.data.keyword.powerSys_notm}}
@@ -76,11 +76,15 @@ Step 2: Ensure Python3.8+ and pip is installed
 ```sh
 python -version
 ```
+{: codeblock}
+
 OR
 ```sh
 python3 -version
 pip version
 ```
+{: codeblock}
+
 If Python or pip is not installed, download Python from python.org and pip typically come bundled with it.
 
 Step 3: Install packages from requirements.txt (present in the code)
@@ -88,6 +92,8 @@ Step 3: Install packages from requirements.txt (present in the code)
 ```sh
 pip install -r requirements.txt
 ```
+{: codeblock}
+
 `Requirements.txt`
 ```sh
 flask
@@ -98,6 +104,7 @@ flask_cors
 oracledb
 hdbcli
 ```
+{: codeblock}
 
 Working with different database systems in Python, specific adapters and extension modules are required to establish connections and run database operations.
 
@@ -112,6 +119,7 @@ Step 4: Ensure that all packages are installed correctly by listing installed pa
 ```sh
 pip list
 ```
+{: codeblock}
 
 Step 5: Go to the folder “watsonx-integration-server” open the configuration files and update the following parameters:
 
@@ -127,7 +135,7 @@ url=https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29
 [apikey]
 api_key=LKFMSDLFSFXXXXXXXXXXXXrV
 ```
-
+{: codeblock}
 
 
 - [apiserver]
@@ -159,6 +167,7 @@ api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and us
     ]
 }
 ```
+{: codeblock}
 
 The `resp_config.json` file defines the expected structured response format from an LLM that interacts with the toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring seamless integration with API layer.
 
@@ -173,6 +182,7 @@ The `resp_config.json` file defines the expected structured response format from
             "data": "I have found the following transactions based on your request."
         },
 ```
+{: codeblock}
 
 
 - Type: "text" - This segment holds written information.
@@ -186,6 +196,8 @@ The `resp_config.json` file defines the expected structured response format from
             "data": []
         }
 ```
+{: codeblock}
+
 - Type: "table" - This segment is meant to hold tabular data.
 - Data: [] (Empty array) - In case no transactions were found.
 
@@ -249,6 +261,7 @@ Output: select * from transactions, accounts, users where transactions.from_acc_
           "remove_entity_value": true
         }
 ```
+{: codeblock}
 
 
 The JSON structure here constitutes the body of the request, sent to the watsonx.ai service. Descriptions listed:
@@ -274,6 +287,7 @@ host=xx.xx.xx.xx
 port=9476
 dbname=bankdb
 ```
+{: codeblock}
 
 The following are the values for different databases:
 -	dbtype  = 1 for Oracle DB
@@ -294,19 +308,19 @@ import oracledb
 import psycopg2
 from hdbcli import dbapi
 ```
+{: codeblock}
 
 Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
 
 ```sh
 FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=5001 flask run
 ```
+{: codeblock}
 
 Sample output:
 
 ![Sample Output](images/step7-sample-output.png){: caption="sample output" caption-side="bottom" }{: style="text-align: center;"}
 
-Step 8: To set up gen AI Assistant, follow the instructions in the readme file link
+Step 8: To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md)
 
-https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md
-
-Demo video of the Toolkit: HERE
+[Demo video of the Toolkit](https://mediacenter.ibm.com/media/Infusing+AI+into+mission+critical+workloads+with+PowerVS+and+watsonx.ai/1_fzqutamr)
