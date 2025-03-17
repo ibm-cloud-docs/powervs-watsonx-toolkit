@@ -39,7 +39,7 @@ With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Wh
 
 The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
 
-{{site.data.keyword.redhat_openshift_full:}} Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
+{{site.data.keyword.redhat_openshift_full}} Container Platform is optional, and Toolkit can be installed directly on RHEL as explained in further sections.
 
 The overall structure is divided into several components:
 -   Databases, which have mission-critical data on {{site.data.keyword.powerSys_notm}}
