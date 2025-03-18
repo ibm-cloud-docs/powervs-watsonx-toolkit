@@ -69,7 +69,7 @@ The following instructions help to install and set up Toolkit on {{site.data.key
 The following instructions are not platform specific and any platform-specific library decencies must be resolved by self
 {: note}
 
-### Step 1: Log in to the VM, Git clone the Toolkit repo (https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+### Step 1: Log in to the VM, [Git clone the Toolkit repo](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
 {: #step-1}
 
 ### Step 2: Ensure Python3.8+ and pip is installed
@@ -201,6 +201,9 @@ The `resp_config.json` file defines the expected structured response format from
             "data": []
         }
 ```
+
+
+
 
 `llm_params_config.json`
 ```text
