@@ -69,11 +69,15 @@ The following instructions help to install and set up Toolkit on {{site.data.key
 The following instructions are not platform specific and any platform-specific library decencies must be resolved by self
 {: note}
 
-### Step 1: Log in to the VM, [Git clone the Toolkit repo](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+### Step 1
 {: #step-1}
 
-### Step 2: Ensure Python3.8+ and pip is installed
+Log in to the VM. Git clone the Toolkit repo. [Git clone the Toolkit repo](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+
+### Step 2
 {: #step-2}
+
+Ensure Python3.8+ and pip is installed
 
 ```python
 python -version
@@ -89,8 +93,10 @@ pip version
 
 If Python or pip is not installed, download Python from python.org and pip typically come bundled with it.
 
-### Step 3: Install packages from requirements.txt (present in the code)
+### Step 3
 {: #step-3}
+
+ Install packages from requirements.txt (present in the code)
 
 ```python
 pip install -r requirements.txt
@@ -116,16 +122,20 @@ Working with different database systems in Python, specific adapters and extensi
 
 By default, the Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HANA. If your project does not involve PostgreSQL, Oracle, or SAP HANA, you can exclude psycopg2, oracledb, or hdbcli from the requirements.txt file, keeping dependencies minimal and relevant.
 
-### Step 4: Ensure that all packages are installed correctly by listing installed packages:
+### Step 4
 {: #step-4}
+
+Ensure that all packages are installed correctly by listing installed packages:
 
 ```python
 pip list
 ```
 {: codeblock}
 
-### Step 5: Go to the folder “watsonx-integration-server” open the configuration files and update the following parameters:
+### Step 5
 {: #step-5}
+
+Go to the folder “watsonx-integration-server” open the configuration files and update the following parameters:
 
 `Config.ini`
 ```text
@@ -277,8 +287,10 @@ The JSON structure here constitutes the body of the request, sent to the watsonx
 - moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
 
 
-### Step 6: Go to the folder “database-integration-service” open the database configuration file `config.ini` and update the following fields:
+### Step 6
 {: #step-6}
+
+Go to the folder “database-integration-service” open the database configuration file `config.ini` and update the following fields:
 
 `config.ini`
 ```text
@@ -311,8 +323,10 @@ import psycopg2
 from hdbcli import dbapi
 ```
 
-### Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
+### Step 7
 {: #step-7}
+
+Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
 
 ```python
 FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=9476 flask run
@@ -323,8 +337,10 @@ Sample output:
 
 ![Sample Output](images/step7-sample-output.png){: caption="sample output" caption-side="bottom" }{: style="text-align: center;"}
 
-### Step 8: To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md)
+### Step 8
 {: #step-8}
+
+To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md)
 
 ## Demo video
 {: #demo-video}
