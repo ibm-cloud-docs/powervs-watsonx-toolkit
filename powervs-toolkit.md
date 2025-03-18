@@ -73,13 +73,13 @@ Step 1: Log in to the VM, Git clone the Toolkit repo (https://github.ibm.com/AIo
 
 Step 2: Ensure Python3.8+ and pip is installed
 
-```sh
+```python
 python -version
 ```
 {: codeblock}
 
 OR
-```sh
+```python
 python3 -version
 pip version
 ```
@@ -89,13 +89,13 @@ If Python or pip is not installed, download Python from python.org and pip typic
 
 Step 3: Install packages from requirements.txt (present in the code)
 
-```sh
+```python
 pip install -r requirements.txt
 ```
 {: codeblock}
 
 `Requirements.txt`
-```sh
+```text
 flask
 gevent
 python-dotenv
@@ -104,7 +104,6 @@ flask_cors
 oracledb
 hdbcli
 ```
-{: codeblock}
 
 Working with different database systems in Python, specific adapters and extension modules are required to establish connections and run database operations.
 
@@ -116,7 +115,7 @@ By default, the Toolkit supports all three databases: Oracle, PostgreSQL, and SA
 
 Step 4: Ensure that all packages are installed correctly by listing installed packages:
 
-```sh
+```python
 pip list
 ```
 {: codeblock}
@@ -125,9 +124,9 @@ Step 5: Go to the folder “watsonx-integration-server” open the configuration
 
 
 `Config.ini`
-```sh
+```text
 [apiserver]
-port=2005
+port=9476
 
 [llmurl]
 url=https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29
@@ -135,7 +134,6 @@ url=https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29
 [apikey]
 api_key=LKFMSDLFSFXXXXXXXXXXXXrV
 ```
-{: codeblock}
 
 
 - [apiserver]
@@ -152,7 +150,7 @@ api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and us
 
 
 `resp_config.json`
-```sh
+```text
 {
     "type": "agent",
     "sections": [
@@ -167,7 +165,6 @@ api_key:  [Create a personal API key](https://cloud.ibm.com/iam/apikeys), and us
     ]
 }
 ```
-{: codeblock}
 
 The `resp_config.json` file defines the expected structured response format from an LLM that interacts with the toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring seamless integration with API layer.
 
@@ -176,33 +173,33 @@ The `resp_config.json` file defines the expected structured response format from
 
 -	**First section:**
 
-```sh
+
+    - Type: "text" - This segment holds written information.
+    - Data: A string message informs the user about retrieved transactions.
+
+
+```text
 {
             "type": "text",
             "data": "I have found the following transactions based on your request."
         },
 ```
-{: codeblock}
 
-
-- Type: "text" - This segment holds written information.
-- Data: A string message informs the user about retrieved transactions.
 
 - **Second section:**
 
-```sh
+    - Type: "table" - This segment is meant to hold tabular data.
+    - Data: [] (Empty array) - In case no transactions were found.
+
+```text
 {
             "type": "table",
             "data": []
         }
 ```
-{: codeblock}
-
-- Type: "table" - This segment is meant to hold tabular data.
-- Data: [] (Empty array) - In case no transactions were found.
 
 `llm_params_config.json`
-```sh
+```text
 {
   "input": "You are a developer writing SQL queries given natural language questions. The database contains a set of 3 tables. The schema of each table with description of the attributes is given. Write the SQL query given a natural language statement with names being not case sensitive
 Here are the 3 tables :
@@ -261,8 +258,6 @@ Output: select * from transactions, accounts, users where transactions.from_acc_
           "remove_entity_value": true
         }
 ```
-{: codeblock}
-
 
 The JSON structure here constitutes the body of the request, sent to the watsonx.ai service. Descriptions listed:
 - input: Contain a text prompt formatted in a specific syntax, indicating roles and their inputs. Can include a database schema with sample NLP statement and equivalent SQL
@@ -278,16 +273,15 @@ The JSON structure here constitutes the body of the request, sent to the watsonx
 Step 6: Go to the folder “database-integration-service” open the database configuration file `config.ini` and update the following fields:
 
 `config.ini`
-```sh
+```text
 [database]
 dbtype=1
 user=bnk_db
 password=xxxx
 host=xx.xx.xx.xx
-port=9476
+port=1521
 dbname=bankdb
 ```
-{: codeblock}
 
 The following are the values for different databases:
 -	dbtype  = 1 for Oracle DB
@@ -303,17 +297,16 @@ Where
 
 Open the file `database_integrate.py` and comment the lines based on the databases you are not using (Oracle, PostgreSQL, or SAP HANA):
 
-```sh
+```text
 import oracledb
 import psycopg2
 from hdbcli import dbapi
 ```
-{: codeblock}
 
 Step 7: Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
 
-```sh
-FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=5001 flask run
+```python
+FLASK_APP=flask_api.py FLASK_RUN_HOST=0.0.0.0 FLASK_RUN_PORT=9476 flask run
 ```
 {: codeblock}
 
@@ -323,4 +316,7 @@ Sample output:
 
 Step 8: To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md)
 
-[Demo video of the Toolkit](https://mediacenter.ibm.com/media/Infusing+AI+into+mission+critical+workloads+with+PowerVS+and+watsonx.ai/1_fzqutamr)
+## Demo video
+{: #demo-video}
+
+[Demo video - NLP2SQL Toolkit](https://mediacenter.ibm.com/media/Infusing+AI+into+mission+critical+workloads+with+PowerVS+and+watsonx.ai/1_fzqutamr)
