@@ -6,7 +6,7 @@ lastupdated: "2025-02-27"
 
 keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Power virtual server
 
-subcollection: powervs_watsonx_toolkit
+subcollection: powervs-watsonx-toolkit
 
 ---
 {{site.data.keyword.attribute-definition-list}}
