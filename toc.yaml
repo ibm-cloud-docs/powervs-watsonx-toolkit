@@ -13,8 +13,8 @@ toc:
     industry: FinancialSector
     use-case: BankingAndFinanceIndustry
     compliance: IBMCloudFFS
-    description: Leveraging watsonx with PowerVS for NLP2SQL use case
-    label: Power virtual server integration with watsonx
+    description: This doc collection introduces how to integrate Power Virtual Server and watsonx, and includes tutorials to show the detailed steps.
+    label: Power Virtual Server integration with watsonx
   entries:
   - navgroup:
       id: overview
