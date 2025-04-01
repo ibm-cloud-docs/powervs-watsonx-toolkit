@@ -65,7 +65,7 @@ First, let's discuss {{site.data.keyword.powerSys_notm}} and watsonx SaaS integr
 
 In this case, client has some workloads on {{site.data.keyword.powerSys_notm}}, which could be databases, applications, or even AI models hosted on {{site.data.keyword.powerSys_notm}}. If the client also has other cloud workloads in VPC, we would recommend multiple VPCs for separation of concerns between edge networking controls, provider management, and consumer workloads. Refer to [VPC reference architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) in IBM Cloud Framework for Financial Services for recommended architecture and best practices.
 
-![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})](../images/{{site.data.keyword.powerSys_notm}}-ai-SaaS.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
+![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})](../images/powervs-ai-SaaS.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
 
 IBM {{site.data.keyword.powerSys_notm}} and watsonx SaaS connectivity:
 
@@ -80,7 +80,7 @@ This architecture includes {{site.data.keyword.powerSys_notm}} Workspace and thr
 
 If the client only has workloads on {{site.data.keyword.powerSys_notm}} and no other workloads in VPC, we would recommend to set up edge VPC to control traffic flows and do not expose {{site.data.keyword.powerSys_notm}} directly. The diagram below is a simplied version of the reference architecture, where network flow and bastion host can be set up in the edge VPC.
 
-![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})](../images/{{site.data.keyword.powerSys_notm}}-ai-SaaS-edge.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
+![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})](../images/powervs-ai-SaaS-edge.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
 
 IBM provides different flavors of deployable architectures to automatically provision {{site.data.keyword.powerSys_notm}} environment. Refer to [Power Systems Virtual Server with VPC landing zone](https://cloud.ibm.com/docs/{{site.data.keyword.powerSys_notm}}-vpc?topic={{site.data.keyword.powerSys_notm}}-vpc-automation-solution-overview) for details.
 
@@ -92,7 +92,7 @@ You can also refer to [Gen AI pattern for watsonx on IBM Cloud](https://cloud.ib
 
 If client chooses to deploy their own stack and have a single tenant watsonx to train, tune, or host their own models, they can deploy watsonx on OpenShift cluster at location of their choice. The reference architecture below shows the watsonx stack deployed in workload VPC in IBM Cloud.
 
-![{{site.data.keyword.powerSys_notm}} and watsonx software integration](../images/{{site.data.keyword.powerSys_notm}}-ai-software.svg "{{site.data.keyword.powerSys_notm}} and watsonx software integration"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx software integration" caption-side="bottom"}
+![{{site.data.keyword.powerSys_notm}} and watsonx software integration](../images/powervs-ai-software.svg "{{site.data.keyword.powerSys_notm}} and watsonx software integration"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx software integration" caption-side="bottom"}
 
 IBM {{site.data.keyword.powerSys_notm}} and watsonx software connectivity:
 * Client deploys watsonx software in client owned VPC
@@ -105,7 +105,7 @@ IBM {{site.data.keyword.powerSys_notm}} and watsonx software connectivity:
 
 Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro), this document covers the following solution aspects and domains:
 
-![Architecture design scope](../images/pvs-ai-heatmap.svg "Architecture design scope"){: caption="Architecture design scope" caption-side="bottom"}
+![Architecture design scope](../images/powervs-ai-heatmap.svg "Architecture design scope"){: caption="Architecture design scope" caption-side="bottom"}
 
 
 
