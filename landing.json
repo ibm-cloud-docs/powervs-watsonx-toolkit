@@ -26,7 +26,13 @@
   },
 
   "section_highlights": [
-
+    {
+      "title": "IBM Power Virtual Server Guide for IBM AIX and Linux",
+      "description": "IBM Power Virtual Server Guide for IBM AIX and Linux",
+      "href": "https://www.redbooks.ibm.com/redpieces/pdfs/sg248512.pdf",
+      "type": "redbook",
+      "recommended": true
+    }
   ],
 
   "section_architectures": [
