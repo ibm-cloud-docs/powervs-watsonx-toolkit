@@ -25,6 +25,10 @@
     ]
   },
 
+  "section_highlights": [
+
+  ],
+
   "section_architectures": [
     {
       "title": "Power Virtual Server deployment",
@@ -36,6 +40,15 @@
       "href": "/docs/pattern-genai-rag?topic=pattern-genai-rag-genai-pattern",
       "deployable": false
     }
-  ]
+  ],
+  "section_updates": {
+    "view_more": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started",
+    "tiles": [
+      {
+        "date": "1 April 2025",
+        "title": "Initial updates"
+      }
+    ]
+  }
 
 }
