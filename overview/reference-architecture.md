@@ -27,7 +27,7 @@ content-type: reference-architecture
 {{site.data.keyword.attribute-definition-list}}
 
 # IBM {{site.data.keyword.powerSys_notm}} and IBM AI Cloud Services Integration
-{: #{{site.data.keyword.powerSys_notm}}-ai}
+{: #powervs-watsonx-ra}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
