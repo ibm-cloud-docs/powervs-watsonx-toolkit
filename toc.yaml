@@ -48,3 +48,24 @@ toc:
       id: reference
       topics:
       - references.md
+  - navgroup:
+      id: reference
+      topics:
+      - topicgroup:
+          label: Power Virtual Server
+          links:
+          - link:
+              label: Power Virtual Server product guide
+              href: https://cloud.ibm.com/docs/power-iaas
+          - link:
+              label: Power Virtual Server deployment guide
+              href: https://cloud.ibm.com/docs/powervs-vpc
+      - topicgroup:
+          label: IBM watsonx
+          links:
+          - link:
+              label: IBM watsonx as a Service documentation
+              href: https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
+          - link:
+              label: Agentic AI in enterprise workflow automation
+              href: https://developer.ibm.com/articles/agentic-ai-workflow-automation/
