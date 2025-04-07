@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-07"
 
 keywords:
 
@@ -164,7 +164,8 @@ api_key=LKFMSDLFSFXXXXXXXXXXXXrV
 
 - [apiserver]
 
-Port: Provide the port number at which the flask server must run
+Port: Provide the port number at which the flask server must run . [List of available ports on IBM Power Virtual Server](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-security)
+
 
 - [llmurl]
 
