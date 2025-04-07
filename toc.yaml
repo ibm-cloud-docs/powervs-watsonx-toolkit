@@ -24,23 +24,23 @@ toc:
       - topic: overview/reference-architecture.md
         navtitle: Reference architecture
       - topic: overview/toolkit1-powervs-to-watsonx-integration.md
-        navtitle: Toolkit1 - Power Virtual Server to watsonx integration
+        navtitle: API-based toolkit - Power Virtual Server to watsonx integration
       - topic: overview/toolkit2-watsonx-to-powervs-integration.md
-        navtitle: Toolkit2 - watsonx to Power Virtual Server integration
+        navtitle: Satellite Connector toolkit - watsonx to Power Virtual Server integration
   - navgroup:
       id: tutorial
       topics:
       - topic: tutorials/watsonx-to-powervs-tutorial.md
         navtitle: Watsonx and Power Virtual Server integration demo
       - topicgroup:
-          label: Toolkit1 tutorials
+          label: API-based toolkit tutorials
           topics:
           - topic: tutorials/toolkit1-nlp2sql.md
             navtitle: NLP2SQL generation
           - topic: tutorials/toolkit1-llm-test.md
             navtitle: Exploring LLM models and parameter tuning
       - topicgroup:
-          label: Toolkit2 tutorials
+          label: Satellite Connector toolkit tutorials
           topics:
           - topic: tutorials/toolkit2-watsonx-to-powervs.md
             navtitle: Connect to database on Power Virtual server
