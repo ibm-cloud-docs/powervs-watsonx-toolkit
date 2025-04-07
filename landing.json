@@ -4,6 +4,7 @@
   "introduction": "This repo discusses how to integrate IBM Power Virtual Server with watsonx, and include step-by-step tutorials to show how to do it.",
   "product_page": "https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started",
   "deployment_url": "https://cloud.ibm.com/docs/powervs-vpc",
+
   "section_topics": {
     "links": [
       {
@@ -24,6 +25,7 @@
       }
     ]
   },
+
   "section_highlights": [
     {
       "title": "IBM Power Virtual Server Guide for IBM AIX and Linux",
@@ -53,6 +55,7 @@
       "deployable": false
     }
   ],
+
   "section_updates": {
     "view_more": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started",
     "tiles": [
