@@ -2,7 +2,7 @@
   "version": 2,
   "title": "IBM Power Virtual Server and watsonx integration",
   "introduction": "This repo discusses how to integrate IBM Power Virtual Server with watsonx, and include step-by-step tutorials to show how to do it.",
-  "product_page": "https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started",
+  "product_page": "https://www.ibm.com/products/power-virtual-server",
   "deployment_url": "https://cloud.ibm.com/docs/powervs-vpc",
 
   "section_topics": {
@@ -37,7 +37,7 @@
     {
       "title": "IBM Power Virtual Server: Extend your Mission Critical Workloads with watsonx GenAI",
       "description": "IBM Power Virtual Server and watsonx demo",
-      "href": "https://community.ibm.com/community/user/power/blogs/bruce-anthony/2024/04/17/powervs-and-watsonx",
+      "href": "https://ibm.biz/PowerVS-watsonx",
       "type": "blog",
       "recommended": true
     }
