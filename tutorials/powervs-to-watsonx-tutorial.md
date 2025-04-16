@@ -17,13 +17,13 @@ completion-time: 1h # Estimated time to complete the steps in this tutorial. Min
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Enable watsonx AI to drive insights with data hosted on Power Virtual Server
-{: #tutorial-watsonx-to-powervs}
+# Enhance applications hosted on PowerVS with watsonx AI
+{: #tutorial-powervs-to-watsonx}
 
 
-TODO: Yichong to convert the [tutorial](https://ibm.box.com/s/7ec0ytujz8nibita9pax1v0c0wxro83o).
+TODO: Yichong to update.
 {: note}
 
-This tutorial shows the detailed steps on how to connect watsonx and Power Virtual Server, which helps user to understand the details without utilizing the toolkits.
+This tutorial shows the detailed steps on how to connect from Power Virtual Server to watsonx, which helps user to understand the details without utilizing the toolkits.
 
 Page is under construction, and will come soon.

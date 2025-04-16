@@ -30,8 +30,13 @@ toc:
   - navgroup:
       id: tutorial
       topics:
-      - topic: tutorials/watsonx-to-powervs-tutorial.md
-        navtitle: Watsonx and Power Virtual Server integration demo
+      - topicgroup:
+          label: DIY tutorials
+          topics:
+          - topic: tutorials/powervs-to-watsonx-tutorial.md
+            navtitle: Enhance applications on PowerVS with watsonx AI
+          - topic: tutorials/watsonx-to-powervs-tutorial.md
+            navtitle: Enable watsonx AI to drive insights with data on PowerVS
       - topicgroup:
           label: API-based toolkit tutorials
           topics:
