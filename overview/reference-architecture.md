@@ -39,9 +39,8 @@ This document provides reference architectures and design decisions for applicat
 ## Overview
 {: #overview}
 
-Even though IBM Power is designed for AI and has built-in features to accelerate AI, as discussed in the [Getting Started page](/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started), and one can certainly train AI models anywhere and deploy them on {{site.data.keyword.powerSys_notm}}, this article is not focused on running AI models on {{site.data.keyword.powerSys_notm}}. Rather, this article discusses how to integrate {{site.data.keyword.powerSys_notm}} and watsonx, and take advantages from both of them.
+This article discusses how to integrate {{site.data.keyword.powerSys_notm}} and watsonx, and take advantages of both of them. The diagram below highlights the high-level communication between {{site.data.keyword.powerSys_notm}} and watsonx services:
 
-The diagram below highlights the high-level communication between {{site.data.keyword.powerSys_notm}} and watsonx services:
 1. To extend the mission critical workloads with watsonx, the applications hosted on {{site.data.keyword.powerSys_notm}} can invoke inference APIs on watsonx service endpoint;
 2. To allow cloud native AI applications or watsonx services to make use of the data or applications hosted on {{site.data.keyword.powerSys_notm}}, watsonx needs to access the private services hosted on {{site.data.keyword.powerSys_notm}}. The watsonx.governance service can also use similar path to monitor AI models hosted on {{site.data.keyword.powerSys_notm}} if needed.
 

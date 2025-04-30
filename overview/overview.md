@@ -22,10 +22,6 @@ subcollection: powervs-watsonx-toolkit
 
 [{{site.data.keyword.powerSysFull}} (PowerVS)](https://www.ibm.com/products/power-virtual-server) is an {{site.data.keyword.IBM_notm}} Power server Infrastructure-as-a-Service (IaaS) offering in {{site.data.keyword.cloud_notm}}. {{site.data.keyword.powerSys_notm}} resources reside in {{site.data.keyword.IBM_notm}} data centers with separate networks and direct-attached storage. The internal networks are fenced but offer connectivity options to {{site.data.keyword.cloud_notm}} infrastructure or private cloud environments. This infrastructure design enables {{site.data.keyword.powerSys_notm}} to maintain key enterprise software certification and support as the {{site.data.keyword.powerSys_notm}} architecture is identical to certified private cloud infrastructure.
 
-[IBM Power is designed for AI](https://www.ibm.com/blog/announcement/combining-ai-with-a-trusted-data-approach-on-ibm-power-to-fuel-business-outcomes/) and advanced workloads, positioning enterprises to inference and deploy AI algorithms on sensitive data and transactions that reside on Power systems. As highlighted in [this article](https://www.arrow.com/globalecs/na/arrow-channel-advisor/ibm-powervs-positions-partners-and-their-customers-for-success-with-ai/), {{site.data.keyword.powerSysFull}} provides built-in infrastructure elements that accelerate AI.
-
-![{{site.data.keyword.powerSys_notm}} built-in features to accelerate AI](../images/powervs-ai-features.png){: caption="{{site.data.keyword.powerSys_notm}} built-in features to accelerate AI" caption-side="bottom"}
-
 
 ## Why watsonx
 {: #why-watsonx}
