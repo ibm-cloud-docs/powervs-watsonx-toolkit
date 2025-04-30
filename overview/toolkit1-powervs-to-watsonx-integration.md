@@ -14,7 +14,7 @@ subcollection: powervs-watsonx-toolkit
 {{site.data.keyword.attribute-definition-list}}
 
 
-# API-based Toolkit for NLP2SQL use-case
+# API-based Toolkit for NLP2SQL use case
 {: #toolkit1}
 
 The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data

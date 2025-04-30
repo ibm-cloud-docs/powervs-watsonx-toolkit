@@ -24,7 +24,7 @@ toc:
       - topic: overview/reference-architecture.md
         navtitle: Reference architecture
       - topic: overview/toolkit1-powervs-to-watsonx-integration.md
-        navtitle: API-based toolkit - Power Virtual Server to watsonx integration
+        navtitle: API-based toolkit for NLP2SQL use case
   - navgroup:
       id: tutorial
       topics:
