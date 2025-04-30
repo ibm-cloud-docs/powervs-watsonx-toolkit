@@ -28,16 +28,8 @@ toc:
   - navgroup:
       id: tutorial
       topics:
-      - topicgroup:
-          label: DIY tutorials
-          topics:
-          - topic: tutorials/watsonx-to-powervs-tutorial.md
-            navtitle: Enable watsonx AI to drive insights with data on PowerVS
-      - topicgroup:
-          label: API-based toolkit tutorials
-          topics:
-          - topic: tutorials/toolkit1-nlp2sql.md
-            navtitle: NLP2SQL generation
+      - topic: tutorials/watsonx-to-powervs-tutorial.md
+        navtitle: Enable watsonx AI to drive insights with data on PowerVS
   - navgroup:
       id: reference
       topics:

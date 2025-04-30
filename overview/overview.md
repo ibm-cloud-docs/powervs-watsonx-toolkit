@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -20,22 +20,25 @@ subcollection: powervs-watsonx-toolkit
 
 [{{site.data.keyword.IBM_notm}} Power](https://www.ibm.com/power) is a family of high-performance servers that are based on {{site.data.keyword.IBM_notm}} Power processors. {{site.data.keyword.IBM_notm}} Power is designed to support high-performance computing, large-scale data processing, and essential applications like ERP, CRM, and database systems. {{site.data.keyword.IBM_notm}} Power is known for its Reliability, Availability, and Scalability (RAS), performance and sustainability.
 
-IBM Power is specifically designed for handling critical workloads in a variety of industries. The IBM Power Systems are enterprise-grade servers that provide robust, scalable, and secure solutions for businesses that need to process large volumes of data and run mission-critical applications.
-
 [{{site.data.keyword.powerSysFull}} (PowerVS)](https://www.ibm.com/products/power-virtual-server) is an {{site.data.keyword.IBM_notm}} Power server Infrastructure-as-a-Service (IaaS) offering in {{site.data.keyword.cloud_notm}}. {{site.data.keyword.powerSys_notm}} resources reside in {{site.data.keyword.IBM_notm}} data centers with separate networks and direct-attached storage. The internal networks are fenced but offer connectivity options to {{site.data.keyword.cloud_notm}} infrastructure or private cloud environments. This infrastructure design enables {{site.data.keyword.powerSys_notm}} to maintain key enterprise software certification and support as the {{site.data.keyword.powerSys_notm}} architecture is identical to certified private cloud infrastructure.
+
+[IBM Power is designed for AI](https://www.ibm.com/blog/announcement/combining-ai-with-a-trusted-data-approach-on-ibm-power-to-fuel-business-outcomes/) and advanced workloads, positioning enterprises to inference and deploy AI algorithms on sensitive data and transactions that reside on Power systems. As highlighted in [this article](https://www.arrow.com/globalecs/na/arrow-channel-advisor/ibm-powervs-positions-partners-and-their-customers-for-success-with-ai/), {{site.data.keyword.powerSysFull}} provides built-in infrastructure elements that accelerate AI.
+
+![{{site.data.keyword.powerSys_notm}} built-in features to accelerate AI](../images/powervs-ai-features.png){: caption="{{site.data.keyword.powerSys_notm}} built-in features to accelerate AI" caption-side="bottom"}
+
 
 ## Why watsonx
 {: #why-watsonx}
 
 IBM watsonx is a powerful AI platform that helps businesses unlock the full potential of their data by providing advanced capabilities in machine learning, data analytics, and natural language processing. It enables organizations to automate complex tasks, gain actionable insights from large datasets, and deliver personalized experiences at scale. With its flexible, cloud-native design, watsonx allows businesses to rapidly deploy AI-driven solutions, scale seamlessly, and integrate AI models into existing workflows, all while maintaining high levels of security and compliance. This makes watsonx an essential tool for businesses looking to harness AI for innovation, efficiency, and competitive advantage.
 
-## Why to integrate {{site.data.keyword.powerSys_notm}} and watsonx
+## Better together: {{site.data.keyword.powerSys_notm}} and watsonx
 {: #why-powervs-and-watsonx}
 
 Integrating IBM {{site.data.keyword.powerSys_notm}} and IBM watsonx together can provide a powerful and highly flexible infrastructure for businesses that need to handle demanding workloads, run advanced AI applications, and scale rapidly in a hybrid cloud environment. Here's why integrating these two technologies can be so beneficial:
 
 1. Seamless Hybrid Cloud Integration
-    * IBM {{site.data.keyword.powerSys_notm}} enables businesses to run IBM Power Systems in the cloud, providing flexible, scalable, and secure virtualized infrastructure. This helps organizations transition their mission-critical workloads to a hybrid cloud environment without compromising on performance.
+    * IBM {{site.data.keyword.powerSys_notm}} enables businesses to run IBM Power Systems in the cloud, providing flexible, scalable, and secure virtualized infrastructure. This helps organizations transition their mission-critical workloads to a hybrid cloud environment without compromising on performance. Clients can [expand hybrid cloud and AI adoption with IBM {{site.data.keyword.powerSys_notm}} to boost competitive advantage](https://newsroom.ibm.com/Blog-Expand-hybrid-cloud-and-AI-adoption-with-IBM-Power-Virtual-Server-to-boost-competitive-advantage).
 
     * IBM watsonx, on the other hand, is designed to leverage advanced AI and data analytics capabilities. It can run on both on-premises and cloud environments. By integrating watsonx and IBM {{site.data.keyword.powerSys_notm}}s, businesses can seamlessly integrate AI-driven insights and applications into their cloud infrastructure, gaining both computational power and AI expertise in one unified platform.
 
@@ -61,7 +64,12 @@ Integrating IBM {{site.data.keyword.powerSys_notm}} and IBM watsonx together can
     * IBM watsonx also offers built-in security capabilities, including data privacy and compliance tools that ensure AI models and data processing comply with regulatory requirements (e.g., GDPR, HIPAA). Combining both platforms ensures that AI applications and data storage are highly secure, which is especially important for industries like finance, healthcare, and government.
 
 
+## Sample use cases
+{: #use-cases}
 
-We will discuss in details how to integration {{site.data.keyword.powerSys_notm}} and watsonx as a Service.
+There are various use cases that the applications or services hosted on IBM {{site.data.keyword.powerSys_notm}} needs to integrate with AI/watsonx capabilities. Clients can [extend mission critical workloads with watsonx](https://community.ibm.com/community/user/blogs/bruce-anthony/2024/04/17/powervs-and-watsonx) on {{site.data.keyword.powerSys_notm}}. Clients can also build cloud native AI applications by utilizing data or applications hosted on {{site.data.keyword.powerSys_notm}}.
 
-![{{site.data.keyword.powerSys_notm}} and watsonx high-level connection](../images/overview-high-level.svg){: caption="{{site.data.keyword.powerSys_notm}} and watsonx high-level connection" caption-side="bottom"}
+Here are some sample use cases:
+* Applications hosted on Power need to reach out to watsonx.ai to get intelligent insights by invoking model inference APIs, for example, for risk analysis, customer behavior analysis, product recommendation, marketing campaigns, code generation, etc.;
+* Client builds new cloud native applications and needs watsonx.data to connect to Oracle, DB2, or SAP HANA databases hosted on IBM {{site.data.keyword.powerSys_notm}};
+* Client deploys the AI model on IBM {{site.data.keyword.powerSys_notm}} closer to the data, and would like to use watsonx.governance to monitor the performance of the model.
