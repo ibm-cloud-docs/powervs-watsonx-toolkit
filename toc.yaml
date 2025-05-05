@@ -29,7 +29,7 @@ toc:
       id: tutorial
       topics:
       - topic: tutorials/watsonx-to-powervs-tutorial.md
-        navtitle: Integrate watsonx AI with workloads hosted on Power Virtual Server
+        navtitle: Integrate watsonx services with workloads hosted on Power Virtual Server
   - navgroup:
       id: reference
       topics:
