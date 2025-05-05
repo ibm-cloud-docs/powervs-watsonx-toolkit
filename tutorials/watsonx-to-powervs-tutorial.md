@@ -19,10 +19,6 @@ completion-time: 2h # Estimated time to complete the steps in this tutorial. Min
 
 # Integrate watsonx AI with workloads hosted on Power Virtual Server
 {: #tutorial-watsonx-to-powervs}
-{: toc-content-type="tutorial"} 
-{: toc-services="power-iaas, watsonx, satellite"} 
-{: toc-completion-time="2h"} 
-
 
 This tutorial shows the detailed steps on how to connect watsonx as-a-Service to the private workloads hosted on {{site.data.keyword.powerSys_notm}}.
 {: shortdesc}
