@@ -33,13 +33,13 @@ This tutorial provides detailed steps to set up Satellite Connector for watsonx 
 ![Demo infrastructure](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-demo-infrastructure.png){: caption="Demo infrastructure" caption-side="bottom"}
 
 This tutorial covers the following aspects:
-   1. [Provision a {{site.data.keyword.powerSys_notm}} environment](#provision-powervs-env) by using a deployable architecture that's offered in {{site.data.keyword.cloud_notm}}.
-   1. [Deploy target workloads](#deploy-workloads-on-pvs) on {{site.data.keyword.powerSys_notm}}.
-   1. [Create {{site.data.keyword.satelliteshort}} Connector instance](#create-satellite-connector) in {{site.data.keyword.cloud_notm}}.
-   1. [Deploy {{site.data.keyword.satelliteshort}} Connector agent](#deploy-sc-agent) on {{site.data.keyword.powerSys_notm}}.
-   1. [Config {{site.data.keyword.satelliteshort}} Connector Endpoint](#config-sc-endpoint) in {{site.data.keyword.satelliteshort}} Connector.
-   1. [Connect from watsonx.data service to MySQL on {{site.data.keyword.powerSys_notm}}](#connect-watsonx-data-to-pvs) in {{site.data.keyword.cloud_notm}}.
-   1. [Connect from watsonx.ai service to the workloads on {{site.data.keyword.powerSys_notm}}](#connect-watsonx-ai-to-pvs) in {{site.data.keyword.cloud_notm}}.
+   1. [Provision a {{site.data.keyword.powerSys_notm}} environment](#provision-powervs-env) by using a deployable architecture offered in {{site.data.keyword.cloud_notm}}
+   1. [Deploy target workloads](#deploy-workloads-on-pvs) on {{site.data.keyword.powerSys_notm}}
+   1. [Provision {{site.data.keyword.satelliteshort}} Connector service](#create-satellite-connector) in {{site.data.keyword.cloud_notm}}
+   1. [Deploy {{site.data.keyword.satelliteshort}} Connector agent](#deploy-sc-agent) on {{site.data.keyword.powerSys_notm}}
+   1. [Config {{site.data.keyword.satelliteshort}} Connector Endpoint](#config-sc-endpoint) in {{site.data.keyword.satelliteshort}} Connector
+   1. [Connect from watsonx.data service to MySQL on {{site.data.keyword.powerSys_notm}}](#connect-watsonx-data-to-pvs) in {{site.data.keyword.cloud_notm}}
+   1. [Connect from watsonx.ai service to the workloads on {{site.data.keyword.powerSys_notm}}](#connect-watsonx-ai-to-pvs) in {{site.data.keyword.cloud_notm}}
 
 
 ## Before you begin
@@ -101,7 +101,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    ```
 1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-solution-quickstart-next-steps).
 
-   a. Add proxy settings in ~/.bashrc. As mentioned above, find the <proxy_host_or_ip_port> value in the outputs section of the deployment, and add the following entries at the end of the .bashrc file, and `source .bashrc'.
+   a. Add proxy settings in ~/.bashrc. As mentioned above, find the <proxy_host_or_ip_port> value in the outputs section of the deployment, and add the following entries at the end of the .bashrc file, and `source .bashrc`.
    ```
    export http_proxy=http://<proxy_host_or_ip_port>:3128
    export https_proxy=http://<proxy_host_or_ip_port>:3128
@@ -115,13 +115,12 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    mount <nfs_host_or_ip_path> /nfs
    ```
 
-   c. Config DNS on PowerVS instance
-   Add the dns_host_or_ip_path value at the top in the /etc/resolv.conf file
+   c. Config DNS on {{site.data.keyword.powerSys_notm}} instance. Add the dns_host_or_ip_path value at the top in the `/etc/resolv.conf` file.
    ```
    nameserver dns_host_ip
    ```
 
-   d. Now the {{site.data.keyword.cloud_notm}} instance should have internet access. You can try:
+   d. Now the {{site.data.keyword.powerSys_notm}} instance should have internet access. You can try:
    ```
    curl google.com
    ```
@@ -142,16 +141,17 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
    podman run --name mysql-test-db -e MYSQL_ROOT_PASSWORD=<your-secret-password> -p 3306:3306 -d docker.io/ubuntu/mysql:latest
    ```
 1. Let's download a sample MySQL database. As mentioned in this [MySQL documentation page](https://dev.mysql.com/doc/employee/en/employees-installation.html), we can use the sample [Employees DB on GitHub](https://github.com/datacharmer/test_db).
+
    ```
    # create working directory
    mkdir projects && cd projects
    # Clone github project with sample MySQL test database
    git clone https://github.com/datacharmer/test_db.git
-	cd test_db
+   cd test_db
    # Copy files into container
-	podman cp . mysql-test-db:/test_db
+   podman cp . mysql-test-db:/test_db
    # Execute bash of container
-	podman exec -it mysql-test-db bash
+   podman exec -it mysql-test-db bash
    cd /test_db
    # Import data from inside the container
    mysql -uroot -p<your-secret-password> < employees.sql
@@ -176,14 +176,14 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
    ```
 
 
-## Create {{site.data.keyword.satelliteshort}} Connector instance in {{site.data.keyword.cloud_notm}}
+## Provision {{site.data.keyword.satelliteshort}} Connector service in {{site.data.keyword.cloud_notm}}
 {: #create-satellite-connector}
 {: step}
 
 {{site.data.keyword.satelliteshort}} Connector can be created on IBM Cloud Console or via ibmcloud CLI. IBM Cloud Docs has [instructions](/docs/satellite?topic=satellite-create-connector&interface=ui) on how to create and config Satellite Connector with UI or CLI.
 
 
-To create {{site.data.keyword.satelliteshort}} Connector on the IBM Cloud UI, click on Satellite -> Connectors, and then ‘Create connector’ button. Provide name, rag, Resource Group, IBM Cloud Region, and create connector.
+To create {{site.data.keyword.satelliteshort}} Connector on the IBM Cloud UI, click on Satellite -> Connectors, and then ‘Create connector’ button. Provide name, tag, Resource Group, IBM Cloud region, and create connector.
 
 Once it is created, note down the ID.
    ```
@@ -195,7 +195,7 @@ Once it is created, note down the ID.
 {: #deploy-sc-agent}
 {: step}
 
-IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will show how to set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman, and you can refer to the IBM Cloud docs for more details.
+IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman. You can refer to the IBM Cloud docs for more details.
 
 1. First, install ibmcloud CLI by following instructions in IBM Cloud doc. On RHEL linux, I run the following command.
    ```
@@ -218,7 +218,7 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
    c. Create a file in the ~/agent/env-files directory called env.txt with the following values. Modify the SATELLITE_CONNECTOR_ID variable with your Satellite Connector ID. If you would like traffic to stay in your private network, you need to set SATELLITE_CONNECTOR_DIRECT_LINK_INGRESS. Refer to [Configuraing the request path from your connector agent](/docs/satellite?topic=satellite-connector-agent-path) for more details. I am using the private endpoint in us-south in this demo.
    ```
    # Create a file called env.txt
-   cat <<EOF > env.txt
+   cat <<EOF > ~/agent/env-files/env.txt
    SATELLITE_CONNECTOR_ID=YOUR_SATELLITE_CONNECTOR_ID
    SATELLITE_CONNECTOR_IAM_APIKEY=/agent-env-files/apikey
    SATELLITE_CONNECTOR_TAGS=testsc
@@ -227,8 +227,9 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
    ```
 
 1. Pull the agent image
-   a. Log in to IBM Cloud and IBM Container Registry
+
    ```
+   # Log in to IBM Cloud and IBM Container Registry
    ibmcloud login --apikey YOUR_API_KEY
    ibmcloud cr region-set icr.io
    # login to container registry
@@ -243,13 +244,13 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
    # View podman containers:
    podman ps
    # view podman logs $CONTAINER_ID
-   podman logs 306c4df577df
+   podman logs $CONTAINER_ID
    ```
    Make sure that there is no error in the logs. If everything works correctly, your agent should show up under ‘Active agents’ on the Satellite Connector cloud console, and the agent name should match the container ID.
 
    ![Satellite Connector Active Agents](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-sc-agents.png){: caption="Satellite Connector Active Agents" caption-side="bottom"}
 
-   If the agent stops, then the path is broken, so multiple agents are normally recommended. Refer to IBM Cloud doc for [high availability setup](/docs/satellite?topic=satellite-run-agent-swarm&interface=ui). Only one agent is set up for demo purpose in this tutorial.
+   If you only have one agent and the agent stops, the connection is broken, so multiple agents are normally recommended. Refer to IBM Cloud doc for [high availability setup](/docs/satellite?topic=satellite-run-agent-swarm&interface=ui). Only one agent is set up for demo purpose in this tutorial.
 
 
 ## Config {{site.data.keyword.satelliteshort}} Connector Endpoint in {{site.data.keyword.satelliteshort}} Connector
@@ -261,7 +262,7 @@ Satellite Connector has endpoints that connect to the target workloads. Some IBM
 You can follow the instructions in IBM Cloud doc to [create and manage Connector Endpoint](/docs/satellite?topic=satellite-connector-create-endpoints&interface=ui) either on UI or via CLI.
 
 1. To create the User endpoint on UI, on Satellite Connector cloud console, under ‘User endpoints’, click on ‘Create endpoint’.
-1. For destination resource, choose Agent location runs on the same network.
+1. For destination resource, choose Agent location runs on the same network for this tutorial.
 1. For resource details, enter a name for the endpoint, destination IP is the private IP of the {{site.data.keyword.powerSys_notm}} instance, powervs_instance_management_ip on the DA config Outputs tab, and destination port is the port of the service.
 
    ![Satellite Connector User Endpoint](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-sc-user-endpoint-2.png){: caption="Satellite Connector User Endpoint" caption-side="bottom"}
@@ -308,7 +309,7 @@ In this section, we will use {{site.data.keyword.lakehouse_short}} as consumer t
 
    ![{{site.data.keyword.lakehouse_short}} Infrastructure Manager](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-watsonx-data-im.png){: caption="{{site.data.keyword.lakehouse_short}} Infrastructure Manager" caption-side="bottom"}
 
-1. Click on ‘Add component’, and choose MySQL. Fill in the connection information to the MySQL database hosted on {{site.data.keyword.powerSys_notm}}. Note that the hostname and port information are from the Satellite Connector User endpoint created in the previous step.
+1. Click on ‘Add component’, and choose MySQL. Fill in the connection information to the MySQL database hosted on {{site.data.keyword.powerSys_notm}}. Note that the hostname and port information are from the Satellite Connector User endpoint address created in the previous step.
 
    ![{{site.data.keyword.lakehouse_short}} Add MySQL Connection](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-watsonx-data-mysql-conn.png){: caption="{{site.data.keyword.lakehouse_short}} Add MySQL Connection" caption-side="bottom"}
 
@@ -369,7 +370,7 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
 
    c. Under Private connectivity section, choose the Satellite Connector create earlier in this tutorial, and click on the "Test connection" button on the top.
 
-      ![watsonx.ai studio create MySQL connection](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-mysql-conn-2.png){: caption="watsonx.ai studio create MySQL connection" caption-side="bottom"}
+      ![watsonx.ai studio create MySQL connection](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-mysql-conn-3.png){: caption="watsonx.ai studio create MySQL connection" caption-side="bottom"}
 
    d. You should see that the test connection was successful, and click the Create button to create the connection.
 
@@ -406,6 +407,6 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
 
    b. You should see result like this.
 
-      ![watsonx.ai studio Nginx result](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-Nginx-result.png){: caption="watsonx.ai studio Nginx result" caption-side="bottom"}
+      ![watsonx.ai studio Nginx result](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-nginx-result.png){: caption="watsonx.ai studio Nginx result" caption-side="bottom"}
 
 Congratulations!  Your watsonx.ai service successfully accessed MySQL and Nginx services hosted on {{site.data.keyword.powerSys_notm}}.
