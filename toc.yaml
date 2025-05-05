@@ -29,11 +29,7 @@ toc:
       id: tutorial
       topics:
       - topic: tutorials/watsonx-to-powervs-tutorial.md
-        navtitle: Enable watsonx AI to drive insights with data on PowerVS
-  - navgroup:
-      id: reference
-      topics:
-      - references.md
+        navtitle: Integrate watsonx AI with workloads hosted on Power Virtual Server
   - navgroup:
       id: reference
       topics:
