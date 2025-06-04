@@ -1,0 +1,53 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: powervs-watsonx-toolkit
+    href: /docs/powervs-watsonx-toolkit
+    path: powervs-watsonx-toolkit
+    audience: solution
+    category: solution_docs
+    content-type: solution
+    industry: FinancialSector
+    use-case: BankingAndFinanceIndustry
+    compliance: IBMCloudFFS
+    description: This doc collection introduces how to integrate Power Virtual Server and watsonx, and includes tutorials to show the detailed steps.
+    label: Power Virtual Server integration with watsonx
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - topic: overview/overview.md
+        navtitle: Getting started with Power Virtual Server and watsonx integration
+      - topic: overview/reference-architecture.md
+        navtitle: Reference architecture
+      - topic: overview/toolkit1-powervs-to-watsonx-integration.md
+        navtitle: API-based toolkit for NLP2SQL use case
+  - navgroup:
+      id: tutorial
+      topics:
+      - topic: tutorials/watsonx-to-powervs-tutorial.md
+        navtitle: Integrate watsonx services with workloads hosted on Power Virtual Server
+  - navgroup:
+      id: reference
+      topics:
+      - topicgroup:
+          label: Power Virtual Server
+          links:
+          - link:
+              label: Power Virtual Server product guide
+              href: https://cloud.ibm.com/docs/power-iaas
+          - link:
+              label: Power Virtual Server deployment guide
+              href: https://cloud.ibm.com/docs/powervs-vpc
+      - topicgroup:
+          label: IBM watsonx
+          links:
+          - link:
+              label: IBM watsonx as a Service documentation
+              href: https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
+          - link:
+              label: Agentic AI in enterprise workflow automation
+              href: https://developer.ibm.com/articles/agentic-ai-workflow-automation/

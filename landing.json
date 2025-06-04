@@ -1,0 +1,64 @@
+{
+  "version": 2,
+  "title": "IBM Power Virtual Server and watsonx integration",
+  "introduction": "This repo discusses how to integrate IBM Power Virtual Server with watsonx, and include step-by-step tutorials to show how to do it.",
+  "product_page": "https://www.ibm.com/products/power-virtual-server",
+  "deployment_url": "https://cloud.ibm.com/docs/powervs-vpc",
+
+  "section_topics": {
+    "links": [
+      {
+        "title": "Getting started with Power Virtual Server and watsonx integration",
+        "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started"
+      },
+      {
+        "title": "Power Virtual Server and watsonx integration reference architecture",
+        "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-powervs-watsonx-ra"
+      },
+      {
+        "title": "API-based toolkit for NLP2SQL use case",
+        "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-toolkit1"
+      }
+    ]
+  },
+
+  "section_highlights": [
+    {
+      "title": "IBM Power Virtual Server Guide for IBM AIX and Linux",
+      "description": "IBM Power Virtual Server Guide for IBM AIX and Linux",
+      "href": "https://www.redbooks.ibm.com/redpieces/pdfs/sg248512.pdf",
+      "type": "redbook",
+      "recommended": true
+    },
+    {
+      "title": "IBM Power Virtual Server: Extend your Mission Critical Workloads with watsonx GenAI",
+      "description": "IBM Power Virtual Server and watsonx demo",
+      "href": "https://ibm.biz/PowerVS-watsonx",
+      "type": "blog",
+      "recommended": true
+    }
+  ],
+
+  "section_architectures": [
+    {
+      "title": "Power Virtual Server deployment",
+      "href": "/docs/powervs-vpc",
+      "deployable": true
+    },
+    {
+      "title": "Gen AI Pattern for Watsonx on IBM Cloud",
+      "href": "/docs/pattern-genai-rag?topic=pattern-genai-rag-genai-pattern",
+      "deployable": false
+    }
+  ],
+
+  "section_updates": {
+    "view_more": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started",
+    "tiles": [
+      {
+        "date": "1 April 2025",
+        "title": "Initial updates"
+      }
+    ]
+  }
+}
