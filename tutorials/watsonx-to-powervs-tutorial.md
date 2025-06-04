@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-06-04"
 
 keywords:
 
@@ -284,7 +284,7 @@ In this section, we will use {{site.data.keyword.lakehouse_short}} as consumer t
 
 1. Once the service is provisioned, open the web console. There are a few screens to help you set up starter engine and COS bucket used by {{site.data.keyword.lakehouse_short}}.
 
-1. Follow [IBM documentation](/docs/en/watsonx/watsonxdata/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
+1. Follow [IBM documentation](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
 
    a. Click Configurations on the left, and click on the Driver manager tile.
 

@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-04"
 
 keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Power virtual server
 
@@ -69,12 +69,12 @@ The following instructions help to install and set up Toolkit on {{site.data.key
 The following instructions are not platform specific and any platform-specific library decencies must be resolved by self
 {: note}
 
-### Step 1
+### Step 1: VM Login and Repository Setup
 {: #step-1}
 
-Log in to the VM. Git clone the Toolkit repo. [Git clone the Toolkit repo](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit.git)
+Log in to the VM. Git clone the Toolkit repo. [Git clone the Toolkit repo](https://github.com/IBM/powervs_watsonx_APIbased_nlp2sql_toolkit)
 
-### Step 2
+### Step 2: Installing Python and pip
 {: #step-2}
 
 Ensure Python3.8+ and pip is installed
@@ -93,7 +93,7 @@ pip version
 
 If Python or pip is not installed, download Python from python.org and pip typically come bundled with it.
 
-### Step 3
+### Step 3: Install Required Packages
 {: #step-3}
 
  Install packages from requirements.txt (present in the code)
@@ -122,7 +122,7 @@ Working with different database systems in Python, specific adapters and extensi
 
 By default, the Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HANA. If your project does not involve PostgreSQL, Oracle, or SAP HANA, you can exclude psycopg2, oracledb, or hdbcli from the requirements.txt file, keeping dependencies minimal and relevant.
 
-### Step 4
+### Step 4: Verify Installed Packages
 {: #step-4}
 
 Ensure that all packages are installed correctly by listing installed packages:
@@ -132,7 +132,7 @@ pip list
 ```
 {: codeblock}
 
-### Step 5
+### Step 5: Configure Watsonx Integration Server
 {: #step-5}
 
 Go to the folder “watsonx-integration-server” open the configuration files and update the following parameters:
@@ -287,7 +287,7 @@ The JSON structure here constitutes the body of the request, sent to the watsonx
 - moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
 
 
-### Step 6
+### Step 6: Configure Database Integration Service
 {: #step-6}
 
 Go to the folder “database-integration-service” open the database configuration file `config.ini` and update the following fields:
@@ -323,7 +323,7 @@ import psycopg2
 from hdbcli import dbapi
 ```
 
-### Step 7
+### Step 7: Start the Flask Application
 {: #step-7}
 
 Go to the folder “watsonx-integration-server” and run flask application as shown in the following example:
@@ -337,10 +337,10 @@ Sample output:
 
 ![Sample Output](../images/step7-sample-output.png){: caption="sample output" caption-side="bottom" }{: style="text-align: center;"}
 
-### Step 8
+### Step 8: Gen AI Assistant Setup
 {: #step-8}
 
-To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.ibm.com/AIonPower/powervs_watsonx_Toolkit/blob/main/chatbot_ui/README.md)
+To set up gen AI Assistant, follow the instructions in the [readme file link](https://github.com/IBM/powervs_watsonx_APIbased_nlp2sql_toolkit/blob/main/chatbot_ui/README.md)
 
 ## Demo video
 {: #demo-video}
