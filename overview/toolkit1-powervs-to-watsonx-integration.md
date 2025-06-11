@@ -287,7 +287,7 @@ The JSON structure here constitutes the body of the request, sent to the watsonx
 - moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
 
 
-NOTE: The query response depends entirely on the database schema defined in the provided llm_params_config.json JSON file. The SQL query will be dynamically constructed based on this schema. It is the sole responsibility of the developer to ensure that the JSON accurately represents the database structure, including table names, column names, and semantic meaning of each column. Any mismatch or missing details in the schema may lead to invalid or failed queries.
+The query response depends entirely on the database schema defined in the provided llm_params_config.json JSON file. The SQL query will be dynamically constructed based on this schema. It is the sole responsibility of the developer to ensure that the JSON accurately represents the database structure, including table names, column names, and semantic meaning of each column. Any mismatch or missing details in the schema may lead to invalid or failed queries.
 {: note}
 
 
