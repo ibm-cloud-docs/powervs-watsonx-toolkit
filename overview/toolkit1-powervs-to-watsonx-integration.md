@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-11"
 
 keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Power virtual server
 
@@ -34,7 +34,7 @@ With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Wh
 ## Reference Architecture
 {: #achitecture-diagram}
 
-![Reference Architecture](../images/ToolkitRefArchitecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
+![Reference Architecture](../images/Toolkit1RefArchitecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
 
 
 The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
@@ -285,6 +285,10 @@ The JSON structure here constitutes the body of the request, sent to the watsonx
 - model_id: The ID of the model to use for text generation
 - project_id: The ID of the project associated with the model.
 - moderations: This object contains settings for moderating the generated text. Here, it includes settings for handling sensitive information (PII) and harmful content (HAP). Both are set to mask any sensitive information with a threshold of 0.5.
+
+
+The query response depends entirely on the database schema defined in the provided llm_params_config.json JSON file. The SQL query will be dynamically constructed based on this schema. It is the sole responsibility of the developer to ensure that the JSON accurately represents the database structure, including table names, column names, and semantic meaning of each column. Any mismatch or missing details in the schema may lead to invalid or failed queries.
+{: note}
 
 
 ### Step 6: Configure Database Integration Service
