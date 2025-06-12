@@ -2,12 +2,14 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 
 keywords: IBM PowerVS, IBM Power Virtual Server, watsonx , Toolkit, PowerVS, Power virtual server
 
 
 subcollection: powervs-watsonx-toolkit
+
+content-type: solution
 
 ---
 
