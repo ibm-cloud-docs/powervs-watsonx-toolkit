@@ -4,12 +4,12 @@ copyright:
   years: 2025, 2025
 lastupdated: "2025-06-30"
 
-keywords:
+keywords: watsonx services
 
 subcollection: powervs-watsonx-toolkit
 
 content-type: tutorial
-services: power-iaas, watsonx, satellite
+services: power-iaas, watson, satellite
 account-plan: paid 
 completion-time: 2h 
 use-case: BankingAndFinanceIndustry 
