@@ -1,7 +1,7 @@
 ---
 
 copyright:
-   years: 2025, 2025
+  years: 2025, 2025
 lastupdated: "2025-06-30"
 
 keywords:
