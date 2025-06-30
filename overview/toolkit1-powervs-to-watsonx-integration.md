@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-30"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx , Toolkit, Artificial Intelligence, AI
 
@@ -10,17 +10,8 @@ keywords: Power Virtual Server, IBM Power Virtual Server, watsonx , Toolkit, Art
 subcollection: powervs-watsonx-toolkit
 
 content-type: solution
-
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
-
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
 industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Technology
-
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance: AIAct, IBMCloudFFS
 
 ---
