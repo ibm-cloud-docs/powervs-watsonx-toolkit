@@ -6,7 +6,7 @@ lastupdated: "2025-06-30"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx , Toolkit, Artificial Intelligence, AI
 
-
+author: Yichong Yu
 subcollection: powervs-watsonx-toolkit
 
 content-type: solution
