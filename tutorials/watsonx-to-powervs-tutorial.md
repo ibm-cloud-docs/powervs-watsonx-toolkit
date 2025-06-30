@@ -2,7 +2,7 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-30"
 
 keywords:
 
@@ -10,19 +10,10 @@ subcollection: powervs-watsonx-toolkit
 
 content-type: tutorial
 services: power-iaas, watsonx, satellite
-account-plan: paid # Set `lite` if tutorial can be completed by using only Lite plan services; Set `paid` if the tutorial requires a pay-go or subscription versions of plans for the service
-completion-time: 2h # Estimated time to complete the steps in this tutorial. Minute values are supported up to 90 minutes. Whole hours are also supported; for example: 2h
-
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
-use-case: BankingAndFinanceIndustry
-
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
-industry: Banking, FinancialSector, Insurance
-
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
+account-plan: paid 
+completion-time: 2h 
+use-case: BankingAndFinanceIndustry 
+industry: Banking, FinancialSector, Insurance 
 compliance: AIAct, IBMCloudFFS
 
 
