@@ -29,7 +29,8 @@ compliance: AIAct, IBMCloudFFS
 {: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
 {: toc-compliance="AIAct, IBMCloudFFS"}
 
-The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
+The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development, amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data.
+{: shortdesc}
 
 The Toolkit converts simple text-based questions such as What were the top-selling products last quarter? into SQL queries that retrieve the necessary data. The use of this toolkit eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time that is required to implement these new features to fruition.
 
