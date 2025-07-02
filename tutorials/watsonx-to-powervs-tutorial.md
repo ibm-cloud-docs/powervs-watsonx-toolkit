@@ -13,7 +13,6 @@ services: power-iaas, watson, satellite
 account-plan: paid
 completion-time: 2h
 use-case: BankingAndFinanceIndustry
-industry: Banking, FinancialSector, Insurance
 compliance: AIAct, IBMCloudFFS
 
 ---
@@ -26,7 +25,6 @@ compliance: AIAct, IBMCloudFFS
 {: toc-services="power-iaas, watson, satellite"}
 {: toc-completion-time="2h"}
 {: toc-use-case="BankingAndFinanceIndustry"}
-{: toc-industry="Banking, FinancialSector, Insurance"}
 {: toc-compliance="AIAct, IBMCloudFFS"}
 
 
