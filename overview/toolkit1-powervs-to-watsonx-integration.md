@@ -9,11 +9,11 @@ keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Arti
 author: DIVYA KULKARNI
 subcollection: powervs-watsonx-toolkit
 
-content-type: solution
+content-type: tutorial
 
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 
-industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Technology
+industry: Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology
 
 compliance: AIAct, IBMCloudFFS
 
@@ -24,7 +24,10 @@ compliance: AIAct, IBMCloudFFS
 
 # API-based Toolkit for NLP2SQL use case
 {: #toolkit1}
-{: toc-content-type="solution"}
+{: toc-content-type="tutorial"}
+{: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
+{: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
 The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
 
