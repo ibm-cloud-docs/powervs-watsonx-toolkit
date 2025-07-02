@@ -22,7 +22,7 @@ compliance: AIAct, IBMCloudFFS
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Toolkit for {{site.data.keyword.powerSys_notm}} and watsonx integration with Satellite Connector
+# Toolkit for watsonx to {{site.data.keyword.powerSys_notm}} integration with Satellite Connector
 {: #toolkit2}
 
 IBM provides an open-source [Toolkit With Satellite Connector](https://github.com/IBM/{{site.data.keyword.powerSys_notm}}_watsonx_SatelliteConnectorBasedToolkit), for businesses aiming for expedited AI incorporation into {{site.data.keyword.powerSys_notm}} applications and datasets. This toolkit, based on the Satellite Connector framework, functions as a do-it-yourself(DIY) resource for crafting and personalizing Generative AI and agent-driven applications.
