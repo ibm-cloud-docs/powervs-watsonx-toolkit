@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-02"
 
 keywords: watsonx services
 
@@ -10,7 +10,7 @@ subcollection: powervs-watsonx-toolkit
 
 content-type: tutorial
 services: power-iaas, watson, satellite
-account-plan: paid 
+account-plan: paid
 completion-time: 2h 
 use-case: BankingAndFinanceIndustry 
 industry: Banking, FinancialSector, Insurance 
@@ -23,6 +23,8 @@ compliance: AIAct, IBMCloudFFS
 
 # Integrate watsonx services with workloads hosted on Power Virtual Server
 {: #tutorial-watsonx-to-powervs}
+{: toc-content-type="tutorial"}
+
 
 This tutorial shows the detailed steps on how to connect watsonx as-a-Service to the private workloads hosted on {{site.data.keyword.powerSys_notm}}.
 {: shortdesc}

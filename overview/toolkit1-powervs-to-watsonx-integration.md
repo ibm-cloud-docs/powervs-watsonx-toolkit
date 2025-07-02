@@ -2,14 +2,17 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-02"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
-author: Yichong Yu
+author: DIVYA KULKARNI
 subcollection: powervs-watsonx-toolkit
 
 content-type: solution
+
+# use-case from 'code' column in
+# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv</hidden>
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Technology
 compliance: AIAct, IBMCloudFFS
@@ -21,6 +24,7 @@ compliance: AIAct, IBMCloudFFS
 
 # API-based Toolkit for NLP2SQL use case
 {: #toolkit1}
+{: toc-content-type="solution"}
 
 The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
 
@@ -37,9 +41,9 @@ With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Wh
 
 
 ## Reference Architecture
-{: #achitecture-diagram}
+{: #reference-architecture}
 
-![Reference Architecture](../images/Toolkit1RefArchitecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
+![Reference Architecture](../images/toolkit1-reference-architecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
 
 
 The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.
