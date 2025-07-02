@@ -11,6 +11,7 @@ toc:
     compliance: IBMCloudFFS
     description: This doc collection introduces how to integrate Power Virtual Server and watsonx, and includes tutorials to show the detailed steps.
     label: Power Virtual Server integration with watsonx
+    version: 2
   entries:
   - navgroup:
       id: overview
