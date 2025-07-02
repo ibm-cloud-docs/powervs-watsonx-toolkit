@@ -13,7 +13,7 @@ content-type: solution
 
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 
-industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Technology
+industry: Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology
 
 compliance: AIAct, IBMCloudFFS
 
@@ -24,7 +24,9 @@ compliance: AIAct, IBMCloudFFS
 
 # Toolkit for watsonx to {{site.data.keyword.powerSys_notm}} integration with Satellite Connector
 {: #toolkit2}
-{: toc-content-type="solution"}
+{: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
+{: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
 IBM provides an open-source [Toolkit With Satellite Connector](https://github.com/IBM/PowerVS_watsonx_SatelliteConnectorBasedToolkit), for businesses aiming for expedited AI incorporation into {{site.data.keyword.powerSys_notm}} applications and datasets. This toolkit, based on the Satellite Connector framework, functions as a do-it-yourself(DIY) resource for crafting and personalizing Generative AI and agent-driven applications.
 
