@@ -26,6 +26,8 @@ compliance: AIAct, IBMCloudFFS
 {: toc-services="power-iaas, watson, satellite"}
 {: toc-completion-time="2h"}
 {: toc-use-case="BankingAndFinanceIndustry"}
+{: toc-industry="Banking, FinancialSector, Insurance"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
 
 This tutorial shows the detailed steps on how to connect watsonx as-a-Service to the private workloads hosted on {{site.data.keyword.powerSys_notm}}.

@@ -23,6 +23,9 @@ content-type: reference-architecture
 # IBM {{site.data.keyword.powerSys_notm}} and IBM AI Cloud Services Integration
 {: #powervs-watsonx-ra}
 {: toc-content-type="reference-architecture"}
+{: toc-industry="Banking, FinancialSector, Insurance"}
+{: toc-use-case="BankingAndFinanceIndustry"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
 
 
