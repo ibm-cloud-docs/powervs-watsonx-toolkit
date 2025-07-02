@@ -11,11 +11,10 @@ subcollection: powervs-watsonx-toolkit
 content-type: tutorial
 services: power-iaas, watson, satellite
 account-plan: paid
-completion-time: 2h 
-use-case: BankingAndFinanceIndustry 
-industry: Banking, FinancialSector, Insurance 
+completion-time: 2h
+use-case: BankingAndFinanceIndustry
+industry: Banking, FinancialSector, Insurance
 compliance: AIAct, IBMCloudFFS
-
 
 ---
 
