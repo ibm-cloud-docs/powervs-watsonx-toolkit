@@ -4,10 +4,10 @@ copyright:
   years: 2025, 2025
 lastupdated: "2025-07-02"
 
-keywords: {{site.data.keyword.powerSys_notm}}, IBM {{site.data.keyword.powerSys_notm}}, watsonx, Toolkit, Artificial Intelligence, AI
+keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
 author: DIVYA KULKARNI
-subcollection: {{site.data.keyword.powerSys_notm}}-watsonx-toolkit
+subcollection: powervs-watsonx-toolkit
 
 content-type: solution
 
