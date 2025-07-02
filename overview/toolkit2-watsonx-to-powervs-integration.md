@@ -194,11 +194,11 @@ url= https://eu-de.ml.cloud.ibm.com/ml/v4/deployments/7057d8870/ai_service?versi
     * The output of one endpoint is the input of the subsequent endpoint.
     * In our example we have three endpoints.
 
-    These agents are hosted on the Watsonx AI service and can be developed using a variety of frameworks including LangGraph, LlamaIndex, CrewAI, AutoGen, BeeAI React Agent, and BeeAI Workflow. For more examples of these agents, you can refer to the repository at https://github.com/IBM/watsonx-developer-hub/tree/main/agents.
+    These agents are hosted on the Watsonx AI service and can be developed using a variety of frameworks including LangGraph, LlamaIndex, CrewAI, AutoGen, BeeAI React Agent, and BeeAI Workflow. For more examples of these agents, you can refer to the [github repository](https://github.com/IBM/watsonx-developer-hub/tree/main/agents).
 
     The agent in this case was developed using the Watsonx Agent Lab, but the same principles apply to agents created with any of the mentioned frameworks. These agents can be deployed as AI services. The provided links also offer examples on how to deploy on IBM Cloud.
 
-    For instructions on how to build and deploy agents to watsonx.ai from your Integrated Development Environment (IDE), please visit: https://www.ibm.com/new/announcements/build-and-deploy-agents-to-watsonx-ai-from-your-ide. The sample agent code for your reference, which connects to an Oracle DB on Power Virtual System is provided in step 9.
+    For how to build and deploy agents to watsonx.ai from your Integrated Development Environment (IDE), please visit [instructions](https://www.ibm.com/new/announcements/build-and-deploy-agents-to-watsonx-ai-from-your-ide). The sample agent code for your reference, which connects to an Oracle DB on Power Virtual System is provided in step 9.
 
 
 ### Step 7:  configure the response structure
@@ -353,7 +353,7 @@ The Json structure here constitutes the body of the request sent to watsonx.ai s
 ### Step 9: Set up satellite connector  and agent
 {: #step-9}
 
-In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the IBM Satellite Connector documentation: https://cloud.ibm.com/docs/satellite?topic=satellite-create-connector&interface=ui.
+In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the [IBM Satellite Connector documentation](https://cloud.ibm.com/docs/satellite?topic=satellite-create-connector&interface=ui).
 
 Below is a sample agent code for your reference, which connects to an Oracle DB on Power Virtual System. Please adjust this code as necessary to accommodate your preferred database.
 
