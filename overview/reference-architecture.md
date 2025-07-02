@@ -30,6 +30,7 @@ content-type: reference-architecture
 
 
 This document provides reference architectures and design decisions for applications and services hosted on IBM {{site.data.keyword.powerSys_notm}} to integrate with IBM managed watsonx SaaS services or client managed watsonx software in IBM Cloud.
+{: shortdesc}
 
 
 ## Overview
