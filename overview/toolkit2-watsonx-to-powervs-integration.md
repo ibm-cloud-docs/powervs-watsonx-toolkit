@@ -12,7 +12,7 @@ authors:
 
 subcollection: powervs-watsonx-toolkit
 
-content-type: solution
+content-type: reference-architecture
 
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 
@@ -27,6 +27,7 @@ compliance: AIAct, IBMCloudFFS
 
 # Toolkit for watsonx to {{site.data.keyword.powerSys_notm}} integration with Satellite Connector
 {: #toolkit2}
+{: toc-content-type="reference-architecture"}
 {: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
 {: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
 {: toc-compliance="AIAct, IBMCloudFFS"}
