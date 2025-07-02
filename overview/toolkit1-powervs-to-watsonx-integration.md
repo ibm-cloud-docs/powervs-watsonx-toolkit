@@ -17,8 +17,6 @@ industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Te
 
 compliance: AIAct, IBMCloudFFS
 
-audience: solution
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
