@@ -24,6 +24,7 @@ compliance: AIAct, IBMCloudFFS
 
 # Toolkit for watsonx to {{site.data.keyword.powerSys_notm}} integration with Satellite Connector
 {: #toolkit2}
+{: toc-content-type="solution"}
 
 IBM provides an open-source [Toolkit With Satellite Connector](https://github.com/IBM/PowerVS_watsonx_SatelliteConnectorBasedToolkit), for businesses aiming for expedited AI incorporation into {{site.data.keyword.powerSys_notm}} applications and datasets. This toolkit, based on the Satellite Connector framework, functions as a do-it-yourself(DIY) resource for crafting and personalizing Generative AI and agent-driven applications.
 
@@ -177,7 +178,7 @@ url= https://eu-de.ml.cloud.ibm.com/ml/v4/deployments/7057d8870/ai_service?versi
 
 * [apiserver]
 
-    Port: Provide the port number at which the flask server must run. Refer here for the list of fixed firewall ports open on the Juniper vSRX firewalls on {{site.data.keyword.powerSys_notm}}.
+    Port: Provide the port number at which the flask server must run. Refer [here](/docs/power-iaas?topic=power-iaas-network-security) for the list of fixed firewall ports open on the Juniper vSRX firewalls on {{site.data.keyword.powerSys_notm}}.
 
 * [apikey]
 
