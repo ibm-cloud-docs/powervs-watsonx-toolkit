@@ -15,6 +15,7 @@ completion-time: 2h
 use-case: BankingAndFinanceIndustry
 industry: Banking, FinancialSector, Insurance
 compliance: AIAct, IBMCloudFFS
+audience: solution
 
 ---
 
@@ -23,6 +24,9 @@ compliance: AIAct, IBMCloudFFS
 # Integrate watsonx services with workloads hosted on Power Virtual Server
 {: #tutorial-watsonx-to-powervs}
 {: toc-content-type="tutorial"}
+{: toc-services="power-iaas, watson, satellite"}
+{: toc-completion-time="2h"}
+{: toc-use-case="BankingAndFinanceIndustry"}
 
 
 This tutorial shows the detailed steps on how to connect watsonx as-a-Service to the private workloads hosted on {{site.data.keyword.powerSys_notm}}.
