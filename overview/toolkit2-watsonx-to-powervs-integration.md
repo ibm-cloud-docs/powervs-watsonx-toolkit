@@ -6,7 +6,10 @@ lastupdated: "2025-07-02"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
-author: DIVYA KULKARNI
+authors:
+  - name: DIVYA KULKARNI
+    url: https://linkedin.com
+
 subcollection: powervs-watsonx-toolkit
 
 content-type: solution
