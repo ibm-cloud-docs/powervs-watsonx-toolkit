@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-03"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
@@ -12,7 +12,7 @@ authors:
 
 subcollection: powervs-watsonx-toolkit
 
-content-type: reference-architecture
+content-type: tutorial
 
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 
@@ -27,7 +27,7 @@ compliance: AIAct, IBMCloudFFS
 
 # Toolkit for watsonx to {{site.data.keyword.powerSys_notm}} integration with Satellite Connector
 {: #toolkit2}
-{: toc-content-type="reference-architecture"}
+{: toc-content-type="tutorial"}
 {: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
 {: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
 {: toc-compliance="AIAct, IBMCloudFFS"}
