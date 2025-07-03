@@ -39,14 +39,14 @@ IBM provides an open-source [Toolkit With Satellite Connector](https://github.co
 ## Benefits
 {: #Benefits}
 
-IBM's Toolkit accelerates AI development, minimizing effort and simplifying {{site.data.keyword.powerSys_notm}} adoption by offering a foundational framework for Generative AI use case prototyping. The Satellite Connector component ensures secure data access to watsonx through TLS tunneling, addressing enterprise data security concerns.
+IBM's Toolkit accelerates AI development, minimizing effort and simplifying {{site.data.keyword.powerSys_notm}} adoption by offering a foundational framework for Generative AI use case prototyping. The Satellite Connector component ensures secure data access from watsonx SaaS to enterprise data on PowerVS through TLS tunneling, addressing client's security concerns.
 
 
 
 ## When to choose Toolkit with Satellite Connector
 {: #when}
 
-* Opt for the Toolkit with Satellite Connector when your organization needs a secure and efficient approach to incorporating Generative AI into {{site.data.keyword.powerSys_notm}} applications and datasets. This toolkit is especially advantageous if you aim to lessen development effort, simplify AI adoption, and tackle enterprise-grade data security issues. The Satellite Connector's TLS tunneling guarantees secure data access to watsonx, making it an excellent choice for businesses emphasizing data protection and compliance.
+* Opt for the Toolkit with Satellite Connector when your organization needs a secure and efficient approach to incorporating Generative AI into {{site.data.keyword.powerSys_notm}} applications and datasets. This toolkit is especially advantageous if you aim to lessen development effort, simplify AI adoption, and tackle enterprise-grade data security issues. The Satellite Connector's TLS tunneling provides a secure communication channel for watsonx services like watsonx.ai, watsonx.gov, watsonx Assistant, etc., to access data from {{site.data.keyword.powerSys_notm}}.
 * Furthermore, if you're looking for a customizable solution to create Generative AI and agent-driven applications, this toolkit provides the adaptability and base required for your unique use cases.
 * Some potential use cases for the Toolkit with Satellite Connector include Automated Quote Generation, Intelligent Order Processing, Automated Contract Generation, Automated Claim Creation, Intelligent Claims Assessment, and Premium Calculation.
 
