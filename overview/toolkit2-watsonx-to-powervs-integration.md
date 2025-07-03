@@ -39,7 +39,7 @@ IBM provides an open-source [Toolkit With Satellite Connector](https://github.co
 ## Benefits
 {: #Benefits}
 
-IBM's Toolkit accelerates AI development, minimizing effort and simplifying {{site.data.keyword.powerSys_notm}} adoption by offering a foundational framework for Generative AI use case prototyping. The Satellite Connector component ensures secure data access from watsonx SaaS to enterprise data on PowerVS through TLS tunneling, addressing client's security concerns.
+IBM's Toolkit accelerates AI development, minimizing effort and simplifying {{site.data.keyword.powerSys_notm}} adoption by offering a foundational framework for Generative AI use case prototyping. The Satellite Connector component ensures secure data access from watsonx SaaS to enterprise data on {{site.data.keyword.powerSys_notm}} through TLS tunneling, addressing client's security concerns.
 
 
 
