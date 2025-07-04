@@ -2,22 +2,16 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-07-02"
 
 keywords: Power Virtual Server, watsonx, Artificial Intelligence, AI
 
 subcollection: powervs-watsonx-toolkit
 
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
 use-case: BankingAndFinanceIndustry
 
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
 industry: Banking, FinancialSector, Insurance
 
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance: AIAct, IBMCloudFFS
 
 content-type: reference-architecture
@@ -29,11 +23,14 @@ content-type: reference-architecture
 # IBM {{site.data.keyword.powerSys_notm}} and IBM AI Cloud Services Integration
 {: #powervs-watsonx-ra}
 {: toc-content-type="reference-architecture"}
-{: toc-version="1.0"}
+{: toc-industry="Banking, FinancialSector, Insurance"}
+{: toc-use-case="BankingAndFinanceIndustry"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
 
 
 This document provides reference architectures and design decisions for applications and services hosted on IBM {{site.data.keyword.powerSys_notm}} to integrate with IBM managed watsonx SaaS services or client managed watsonx software in IBM Cloud.
+{: shortdesc}
 
 
 ## Overview
@@ -61,7 +58,7 @@ We will discuss the reference architectures for both watsonx as SaaS and watsonx
 
 First, let's discuss {{site.data.keyword.powerSys_notm}} and watsonx SaaS integration. Let's take a look at two flavors of the reference architecture.
 
-In this case, client has some workloads on {{site.data.keyword.powerSys_notm}}, which could be databases, applications, or even AI models hosted on {{site.data.keyword.powerSys_notm}}. If the client also has other cloud workloads in VPC, we would recommend multiple VPCs for separation of concerns between edge networking controls, provider management, and consumer workloads. Refer to [VPC reference architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) in IBM Cloud Framework for Financial Services for recommended architecture and best practices.
+In this case, client has some workloads on {{site.data.keyword.powerSys_notm}}, which could be databases, applications, or even AI models hosted on {{site.data.keyword.powerSys_notm}}. If the client also has other cloud workloads in VPC, we would recommend multiple VPCs for separation of concerns between edge networking controls, provider management, and consumer workloads. Refer to [VPC reference architecture](/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) in IBM Cloud Framework for Financial Services for recommended architecture and best practices.
 
 ![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})](../images/powervs-ai-SaaS.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads in VPC and on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
 
@@ -80,9 +77,9 @@ If the client only has workloads on {{site.data.keyword.powerSys_notm}} and no o
 
 ![{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})](../images/powervs-ai-SaaS-edge.svg "{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})"){: caption="{{site.data.keyword.powerSys_notm}} and watsonx SaaS integration (with workloads on {{site.data.keyword.powerSys_notm}})" caption-side="bottom"}
 
-IBM provides different flavors of deployable architectures to automatically provision {{site.data.keyword.powerSys_notm}} environment. Refer to [Power Systems Virtual Server with VPC landing zone](https://cloud.ibm.com/docs/{{site.data.keyword.powerSys_notm}}-vpc?topic={{site.data.keyword.powerSys_notm}}-vpc-automation-solution-overview) for details.
+IBM provides different flavors of deployable architectures to automatically provision {{site.data.keyword.powerSys_notm}} environment. Refer to [Power Systems Virtual Server with VPC landing zone](/docs/powervs-vpc?topic=powervs-vpc-automation-solution-overview) for details.
 
-You can also refer to [Gen AI pattern for watsonx on IBM Cloud](https://cloud.ibm.com/docs/pattern-genai-rag?topic=pattern-genai-rag-genai-pattern), which discusses Gen AI patterns without {{site.data.keyword.powerSys_notm}}.
+You can also refer to [Gen AI pattern for watsonx on IBM Cloud](/docs/pattern-genai-rag?topic=pattern-genai-rag-genai-pattern), which discusses Gen AI patterns without {{site.data.keyword.powerSys_notm}}.
 
 
 ### IBM {{site.data.keyword.powerSys_notm}} and watsonx software integration
@@ -101,7 +98,7 @@ IBM {{site.data.keyword.powerSys_notm}} and watsonx software connectivity:
 ## Design concepts
 {: #design-concepts}
 
-Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro), this document covers the following solution aspects and domains:
+Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), this document covers the following solution aspects and domains:
 
 ![Architecture design scope](../images/powervs-ai-heatmap.svg "Architecture design scope"){: caption="Architecture design scope" caption-side="bottom"}
 
@@ -137,33 +134,33 @@ The following table outlines the products or services used in the architecture f
 |  | [Watsonx Assistant](https://www.ibm.com/products/Watsonx-assistant) | Conversational artificial intelligence platform |
 |  | [Watson Discovery](https://www.ibm.com/products/watson-discovery) | Automates the discovery of information and insights with advanced Natural Language Processing and Understanding |
 |  | [watsonx Orchestrate](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=getting-started-watsonx-orchestrate) | A digital assistant and platform that uses automation to help businesses streamline processes and save time |
-| Compute | [IBM {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started) | Virtual Server offering on IBM Power systems |
-|  | [Virtual Servers for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-about-advanced-virtual-servers&interface=ui) | Web, App, and database servers |
-| | [Code Engine](https://cloud.ibm.com/docs/codeengine?topic=codeengine-about) | Run your application, batch job, or container on a managed serverless platform |
-| | [Red Hat OpenShift Kubernetes Service (ROKS)](https://cloud.ibm.com/docs/openshift?topic=openshift-getting-started) | A managed offering to create your own cluster of compute hosts where you can deploy and manage containerized apps on IBM Cloud |
-| Storage | [Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Provide flexible, cost-effective, and scalable cloud storage for unstructured data |
-|  | [IBM Cloud Block Storage for VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-block-storage&interface=ui) | Persistent storage for use as boot and data storage for Virtual Servers in a VPC network |
-| Networking | [VPC Virtual Private Network (VPN)](https://cloud.ibm.com/docs/iaas-vpn?topic=iaas-vpn-getting-started) | Remote access to manage resources in private network |
-|  | [Virtual Private Endpoint (VPE)](https://cloud.ibm.com/docs/vpc?topic=vpc-about-vpe) | For private network access to Cloud Services, e.g., Key Protect, COS, etc. |
-|  | [VPC Load Balancers](https://cloud.ibm.com/docs/vpc?topic=vpc-load-balancers) | Application Load Balancing for web servers, app servers, and database servers |
-|  | [Direct Link 2.0](https://cloud.ibm.com/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) | Seamlessly connect on-premises resources to cloud resources |
-|  | [Transit Gateway (TGW)](https://cloud.ibm.com/docs/transit-gateway?topic=transit-gateway-getting-started) | Connects the Workload and Management VPCs within a region
-|  | [Cloud Internet Services (CIS)](https://cloud.ibm.com/docs/cis?topic=cis-getting-started) | Global load balancing between regions |
-|  | [Access Control List (ACL)](https://cloud.ibm.com/docs/vpc?topic=vpc-using-acls) | To control all incoming and outgoing traffic in Virtual Private Cloud |
-| Security | [IAM](https://cloud.ibm.com/docs/account?topic=account-cloudaccess) | IBM Cloud Identity & Access Management |
-|  | [Key Protect](https://cloud.ibm.com/docs/key-protect?topic=key-protect-about) | A full-service encryption solution that allows data to be secured and stored in IBM Cloud |
-|  | [BYO Bastion Host on VPC VSI](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-connectivity-bastion-tutorial-teleport) | Remote access with Privileged Access Management |
-|  | [App ID](https://cloud.ibm.com/docs/appid?topic=appid-getting-started) | Add authentication to web and mobile apps |
-|  | [Secrets Manager](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-getting-started#getting-started) | Certificate and Secrets Management |
-|  | [Security and Compliance Center (SCC)](https://cloud.ibm.com/docs/security-compliance?topic=security-compliance-getting-started) | Implement controls for secure data and workload deployments, and assess security and compliance posture |
-|  | [Hyper Protect Crypto Services (HPCS)](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started) | Hardware security module (HSM) and Key Management Service |
-|  | [Virtual Network Function (VNF)](https://cloud.ibm.com/docs/vpc?topic=vpc-deploy-vnf) | Virtualized network services running on virtual machines. |
-|  | [Event Notifications](https://cloud.ibm.com/docs/event-notifications?topic=event-notifications-getting-started) | Get notified about critical events that occur in your IBM Cloud account. |
-| DevOps | [Continuous Integration (CI)](https://cloud.ibm.com/docs/containers?topic=containers-cicd) | 	A pipeline that tests, scans and builds the deployable artifacts from the application repositories |
-|  | [Continuous Deployment (CD)](https://cloud.ibm.com/docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started) | A pipeline that generates all of the evidence and change request summary content |
-|  | [Continuous Compliance (CC)](https://cloud.ibm.com/docs/devsecops?topic=devsecops-tutorial-cc-toolchain) | A pipeline that continuously scans deployed artifacts and repositories |
-|  | [Container Registry](https://cloud.ibm.com/apidocs/container-registry) | Highly available, and scalable private image registry |
-| Resiliency | 	[VPC VSIs, VPC Block across multiple zones in two regions](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-vpc-multi-region) | Web, app, database high availability and disaster recovery |
-| Service Management | [IBM Cloud Monitoring](https://cloud.ibm.com/docs/monitoring?topic=monitoring-about-monitor) | Apps and operational monitoring |
-|  | [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started) | Scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs |
+| Compute | [IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-getting-started) | Virtual Server offering on IBM Power systems |
+|  | [Virtual Servers for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers&interface=ui) | Web, App, and database servers |
+| | [Code Engine](/docs/codeengine?topic=codeengine-about) | Run your application, batch job, or container on a managed serverless platform |
+| | [Red Hat OpenShift Kubernetes Service (ROKS)](/docs/openshift?topic=openshift-getting-started) | A managed offering to create your own cluster of compute hosts where you can deploy and manage containerized apps on IBM Cloud |
+| Storage | [Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage) | Provide flexible, cost-effective, and scalable cloud storage for unstructured data |
+|  | [IBM Cloud Block Storage for VPC](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) | Persistent storage for use as boot and data storage for Virtual Servers in a VPC network |
+| Networking | [VPC Virtual Private Network (VPN)](/docs/iaas-vpn?topic=iaas-vpn-getting-started) | Remote access to manage resources in private network |
+|  | [Virtual Private Endpoint (VPE)](/docs/vpc?topic=vpc-about-vpe) | For private network access to Cloud Services, e.g., Key Protect, COS, etc. |
+|  | [VPC Load Balancers](/docs/vpc?topic=vpc-load-balancers) | Application Load Balancing for web servers, app servers, and database servers |
+|  | [Direct Link 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) | Seamlessly connect on-premises resources to cloud resources |
+|  | [Transit Gateway (TGW)](/docs/transit-gateway?topic=transit-gateway-getting-started) | Connects the Workload and Management VPCs within a region
+|  | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started) | Global load balancing between regions |
+|  | [Access Control List (ACL)](/docs/vpc?topic=vpc-using-acls) | To control all incoming and outgoing traffic in Virtual Private Cloud |
+| Security | [IAM](/docs/account?topic=account-cloudaccess) | IBM Cloud Identity & Access Management |
+|  | [Key Protect](/docs/key-protect?topic=key-protect-about) | A full-service encryption solution that allows data to be secured and stored in IBM Cloud |
+|  | [BYO Bastion Host on VPC VSI](/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-connectivity-bastion-tutorial-teleport) | Remote access with Privileged Access Management |
+|  | [App ID](/docs/appid?topic=appid-getting-started) | Add authentication to web and mobile apps |
+|  | [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started#getting-started) | Certificate and Secrets Management |
+|  | [Security and Compliance Center (SCC)](/docs/security-compliance?topic=security-compliance-getting-started) | Implement controls for secure data and workload deployments, and assess security and compliance posture |
+|  | [Hyper Protect Crypto Services (HPCS)](/docs/hs-crypto?topic=hs-crypto-get-started) | Hardware security module (HSM) and Key Management Service |
+|  | [Virtual Network Function (VNF)](/docs/vpc?topic=vpc-deploy-vnf) | Virtualized network services running on virtual machines. |
+|  | [Event Notifications](/docs/event-notifications?topic=event-notifications-getting-started) | Get notified about critical events that occur in your IBM Cloud account. |
+| DevOps | [Continuous Integration (CI)](/docs/containers?topic=containers-cicd) | 	A pipeline that tests, scans and builds the deployable artifacts from the application repositories |
+|  | [Continuous Deployment (CD)](/docs/ContinuousDelivery?topic=ContinuousDelivery-getting-started) | A pipeline that generates all of the evidence and change request summary content |
+|  | [Continuous Compliance (CC)](/docs/devsecops?topic=devsecops-tutorial-cc-toolchain) | A pipeline that continuously scans deployed artifacts and repositories |
+|  | [Container Registry](/apidocs/container-registry) | Highly available, and scalable private image registry |
+| Resiliency | 	[VPC VSIs, VPC Block across multiple zones in two regions](/docs/solution-tutorials?topic=solution-tutorials-vpc-multi-region) | Web, app, database high availability and disaster recovery |
+| Service Management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor) | Apps and operational monitoring |
+|  | [IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-getting-started) | Scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs |
 {: caption="Components" caption-side="bottom"}

@@ -1,30 +1,19 @@
 ---
 
 copyright:
-   years: 2025, 2025
-lastupdated: "2025-06-20"
+  years: 2025, 2025
+lastupdated: "2025-07-02"
 
-keywords:
+keywords: watsonx services
 
 subcollection: powervs-watsonx-toolkit
 
 content-type: tutorial
-services: power-iaas, watsonx, satellite
-account-plan: paid # Set `lite` if tutorial can be completed by using only Lite plan services; Set `paid` if the tutorial requires a pay-go or subscription versions of plans for the service
-completion-time: 2h # Estimated time to complete the steps in this tutorial. Minute values are supported up to 90 minutes. Whole hours are also supported; for example: 2h
-
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
+services: power-iaas, watson, satellite
+account-plan: paid
+completion-time: 2h
 use-case: BankingAndFinanceIndustry
-
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
-industry: Banking, FinancialSector, Insurance
-
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance: AIAct, IBMCloudFFS
-
 
 ---
 
@@ -32,6 +21,12 @@ compliance: AIAct, IBMCloudFFS
 
 # Integrate watsonx services with workloads hosted on Power Virtual Server
 {: #tutorial-watsonx-to-powervs}
+{: toc-content-type="tutorial"}
+{: toc-services="power-iaas, watson, satellite"}
+{: toc-completion-time="2h"}
+{: toc-use-case="BankingAndFinanceIndustry"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
+
 
 This tutorial shows the detailed steps on how to connect watsonx as-a-Service to the private workloads hosted on {{site.data.keyword.powerSys_notm}}.
 {: shortdesc}

@@ -1,26 +1,23 @@
 ---
 
 copyright:
-   years: 2025, 2025
-lastupdated: "2025-06-20"
+  years: 2025, 2025
+lastupdated: "2025-07-02"
 
-keywords: Power Virtual Server, IBM Power Virtual Server, watsonx , Toolkit, Artificial Intelligence, AI
+keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
+authors:
+  - name: DIVYA KULKARNI
+    url: https://linkedin.com
 
 subcollection: powervs-watsonx-toolkit
 
-content-type: solution
+content-type: tutorial
 
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
 use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
 
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
-industry: Banking, FinancialSector, ITConsulting, Insurance , Manufacturing , Technology
+industry: Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology
 
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance: AIAct, IBMCloudFFS
 
 ---
@@ -30,8 +27,13 @@ compliance: AIAct, IBMCloudFFS
 
 # API-based Toolkit for NLP2SQL use case
 {: #toolkit1}
+{: toc-content-type="tutorial"}
+{: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
+{: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
+{: toc-compliance="AIAct, IBMCloudFFS"}
 
-The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development. Amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data
+The NLP2SQL Toolkit serves as a structured set of tools and resources, which are designed to expedite AI adoption by integrating watsonx with {{site.data.keyword.powerSys_notm}} for natural language input to SQL type scenarios. The NLP2SQL Toolkit, henceforth referred as Toolkit can address domain-specific inquiries, all without necessitating the acquisition of specialized expertise. Essentially, it is a holistic approach that is geared toward reducing the time that is spent on development, amplifying the potential for reuse of existing components, and extracting valuable, actionable insights from enterprise data.
+{: shortdesc}
 
 The Toolkit converts simple text-based questions such as What were the top-selling products last quarter? into SQL queries that retrieve the necessary data. The use of this toolkit eliminates reliance on technical teams, speeding up decision-making processes and significantly cutting down on the time that is required to implement these new features to fruition.
 
@@ -46,9 +48,9 @@ With the ready-to-use NLP2SQL Toolkit, businesses can simplify data analysis. Wh
 
 
 ## Reference Architecture
-{: #achitecture-diagram}
+{: #reference-architecture}
 
-![Reference Architecture](../images/Toolkit1RefArchitecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
+![Reference Architecture](../images/toolkit1-reference-architecture.png){: caption="Reference Architecture" caption-side="bottom" }{: style="text-align: center;"}
 
 
 The preceding reference architecture diagram illustrates the Toolkit architecture for NLP2 SQL, highlighting its modular design and key considerations.

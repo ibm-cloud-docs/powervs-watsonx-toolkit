@@ -1,7 +1,3 @@
-#  Name your file `toc.yaml`
-#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
----
 toc:
   properties:
     subcollection: powervs-watsonx-toolkit
@@ -15,6 +11,7 @@ toc:
     compliance: IBMCloudFFS
     description: This doc collection introduces how to integrate Power Virtual Server and watsonx, and includes tutorials to show the detailed steps.
     label: Power Virtual Server integration with watsonx
+    version: 2
   entries:
   - navgroup:
       id: overview
@@ -25,6 +22,8 @@ toc:
         navtitle: Reference architecture
       - topic: overview/toolkit1-powervs-to-watsonx-integration.md
         navtitle: API-based toolkit for NLP2SQL use case
+      - topic: overview/toolkit2-watsonx-to-powervs-integration.md
+        navtitle: Toolkit for watsonx to PowerVS integration with Satellite Connector
   - navgroup:
       id: tutorial
       topics:
