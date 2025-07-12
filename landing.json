@@ -56,8 +56,12 @@
     "view_more": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started",
     "tiles": [
       {
-        "date": "1 April 2025",
-        "title": "Initial updates"
+        "date": "03 July 2025",
+        "title": "Toolkit for watsonx to PowerVirtual Server integration with Satellite Connector added"
+      },
+      {
+        "date": "05 June 2025",
+        "title": "PowerVS and watsonx Solution Guide published with API based toolkit for implementing GenAI use cases"
       }
     ]
   }
