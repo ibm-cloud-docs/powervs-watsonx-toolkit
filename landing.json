@@ -8,16 +8,20 @@
   "section_topics": {
     "links": [
       {
-        "title": "Getting started with Power Virtual Server and watsonx integration",
+        "title": "IBM Power Virtual Server and IBM watxon provide a highly flexible infrastructure for business. Learn how to get started",
         "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-getting-started"
       },
       {
-        "title": "Power Virtual Server and watsonx integration reference architecture",
+        "title": "Learn more about the architectures and options for connectivity between Power Virtual Server and watson",
         "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-powervs-watsonx-ra"
       },
       {
-        "title": "API-based toolkit for NLP2SQL use case",
+        "title": "Implement an API-based Natural Language to SQL use case to use with your AI assistant with our API-based toolkit",
         "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-toolkit1"
+      },
+      {
+        "title": "Simplify your connectivity between watsonx and Power Virtual Server with IBM Satellite Connector, and accelerate your GenAI and agent-driven applications",
+        "href": "/docs/powervs-watsonx-toolkit?topic=powervs-watsonx-toolkit-toolkit2"
       }
     ]
   },
