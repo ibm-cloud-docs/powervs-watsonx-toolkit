@@ -2,19 +2,24 @@
 
 copyright:
    years: 2025, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-12-11"
 
 keywords: Power Virtual Server, watsonx, Artificial Intelligence, AI
 
+authors:
+  - name: Yichong Yu
+    url: https://linkedin.com
+
 subcollection: powervs-watsonx-toolkit
 
-use-case: BankingAndFinanceIndustry
+content-type: reference-architecture
 
-industry: Banking, FinancialSector, Insurance
+use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing
+
+industry: Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology
 
 compliance: AIAct, IBMCloudFFS
 
-content-type: reference-architecture
 
 ---
 
@@ -23,8 +28,8 @@ content-type: reference-architecture
 # IBM {{site.data.keyword.powerSys_notm}} and IBM AI Cloud Services Integration
 {: #powervs-watsonx-ra}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="Banking, FinancialSector, Insurance"}
-{: toc-use-case="BankingAndFinanceIndustry"}
+{: toc-use-case="AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalAI, HybridIntegration, NaturalLanguageProcessing"}
+{: toc-industry="Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology"}
 {: toc-compliance="AIAct, IBMCloudFFS"}
 
 
