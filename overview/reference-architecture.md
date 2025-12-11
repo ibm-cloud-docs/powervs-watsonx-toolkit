@@ -4,7 +4,7 @@ copyright:
    years: 2025, 2025
 lastupdated: "2025-12-11"
 
-keywords: Power Virtual Server, watsonx, Artificial Intelligence, AI
+keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
 authors:
   - name: Yichong Yu
@@ -19,7 +19,6 @@ use-case: AIAssistants, AIBanking, AIFrameworks, AIProductivity, ConversationalA
 industry: Banking, FinancialSector, ITConsulting, Insurance, Manufacturing, Technology
 
 compliance: AIAct, IBMCloudFFS
-
 
 ---
 
