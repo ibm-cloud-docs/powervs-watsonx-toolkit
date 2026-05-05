@@ -69,11 +69,11 @@ In this case, client has some workloads on {{site.data.keyword.powerSys_notm}}, 
 IBM {{site.data.keyword.powerSys_notm}} and watsonx SaaS connectivity:
 
 * Applications and services on IBM {{site.data.keyword.powerSys_notm}}s may need to use watsonx SaaS, for example, application running on {{site.data.keyword.powerSys_notm}} needs to invoke LLM hosted in watsonx.ai
-  - 1.1 Direct Connectivity (NAT): {{site.data.keyword.powerSys_notm}} provides a built-in NAT service for direct connectivity to IBM Cloud Services. This option offers a maximum speed of 10Gbps.
-  - 1.2 Virtual Private Endpoint (VPE): For IBM Cloud Services that has VPE enabled (eg. COS), you can create a VPE pointing directly to the Cloud Service. This method typically provides the highest throuput.
+    - 1.1 Direct Connectivity (NAT): {{site.data.keyword.powerSys_notm}} provides a built-in NAT service for direct connectivity to IBM Cloud Services. This option offers a maximum speed of 10Gbps.
+    - 1.2 Virtual Private Endpoint (VPE): For IBM Cloud Services that has VPE enabled (eg. COS), you can create a VPE pointing directly to the Cloud Service. This method typically provides the highest throuput.
 * IBM Cloud Services (eg. watsonx.data) needs to connect to databases or services (eg. DB2 or Oracle) hosted on {{site.data.keyword.powerSys_notm}}
-  - 2.1 Satellite Connector enables private connectivity to {{site.data.keyword.powerSys_notm}} workloads. Satellite Connector and agent need to be configured and deployed.
-  - 2.2 IBM Cloud Services connect to target services on {{site.data.keyword.powerSys_notm}} via secure private channel.
+    - 2.1 Satellite Connector enables private connectivity to {{site.data.keyword.powerSys_notm}} workloads. Satellite Connector and agent need to be configured and deployed.
+    - 2.2 IBM Cloud Services connect to target services on {{site.data.keyword.powerSys_notm}} via secure private channel.
 
 This architecture includes {{site.data.keyword.powerSys_notm}} Workspace and three VPCs, which provide segmentation for edge traffic control, management functionality, and consumer workloads.
 
@@ -135,7 +135,6 @@ The following table outlines the products or services used in the architecture f
 | Data | [watsonx.ai](https://www.ibm.com/products/watsonx-ai) | Brings together new generative AI capabilities powered by foundation models and traditional machine learning (ML) into a powerful studio spanning the AI lifecycle |
 |  | [watsonx.data](https://www.ibm.com/products/watsonx-data) | Enables you to scale analytics and AI with all your data, wherever it resides |
 |  | [watsonx.governance](https://www.ibm.com/products/watsonx-governance) | Direct, manage and monitor the artificial intelligence activities |
-|  | [Watsonx Assistant](https://www.ibm.com/products/Watsonx-assistant) | Conversational artificial intelligence platform |
 |  | [Watson Discovery](https://www.ibm.com/products/watson-discovery) | Automates the discovery of information and insights with advanced Natural Language Processing and Understanding |
 |  | [watsonx Orchestrate](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate) | A digital assistant and platform that uses automation to help businesses streamline processes and save time |
 | Compute | [IBM {{site.data.keyword.powerSys_notm}}](/docs/power-iaas?topic=power-iaas-getting-started) | Virtual Server offering on IBM Power systems |

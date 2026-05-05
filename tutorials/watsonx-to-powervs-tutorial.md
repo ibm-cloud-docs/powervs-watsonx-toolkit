@@ -74,13 +74,13 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 [This documentation page](/docs/powervs-vpc?topic=powervs-vpc-deploy) highlights the steps to use the deployable architecture, and I will show you how to deploy Linux instance using the Quickstart DA.
 
 1. Log in to {{site.data.keyword.cloud_notm}} and search for 'Power Virtual Server with VPC landing zone' in the Catalog.
-![{{site.data.keyword.powerSys_notm}} Deployable Architecture](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-da.png){: caption="{{site.data.keyword.powerSys_notm}} Deployable Architecture" caption-side="bottom"}
+    ![{{site.data.keyword.powerSys_notm}} Deployable Architecture](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-da.png){: caption="{{site.data.keyword.powerSys_notm}} Deployable Architecture" caption-side="bottom"}
 1. Choose 'Create a new architecture' with the 'Quickstart' variation, and click 'Add to project'.
 1. Choose the project you would like to use or create a new project, and provide the name for the configuration.
 1. Under Security tab, provide the API key or Trusted Profile ID from the [the prerequisite](#prereqs) step.
 1. In this tutorial, we will create a {{site.data.keyword.powerSys_notm}} instance with RHEL 9.2 image. Choose custom image for 'tshirt_size' on the 'Required' tab, and specify values for zone, prefix, SSH keys, and resource group name.
 1. Under Optional tab, choose 'Linux - RHEL9-SP2' for custom_profile_instance_boot_image, and edit the custom_profile JSON:
-   ```
+   ```text
    {
    "sap_profile_id": null,
    "cores": "1",
@@ -96,7 +96,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 1. Take the default for other fields, and click 'Save'.
 1. Validate the configuration, approve and deploy. The environment will be deployed automatically. As you can see from the [Quickstart DA](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard-plus-vsi) diagram, it creates Edge VPC and PowerVS workspace. In Edge VPC, it creates Bastion host (jump server) in management security group, and proxy server in network service security group. It also creates a {{site.data.keyword.powerSys_notm}} instance in the {{site.data.keyword.powerSys_notm}} workspace. Other necessary components to connect {{site.data.keyword.powerSys_notm}} workspace with IBM Cloud resources and secure the environment are also created, for example, Transit Gateway, VPN, VPE, etc.
 1. Once the Quickstart DA finishes, you have the {{site.data.keyword.powerSys_notm}} environment set up. You can find the details of the resources on the Outputs tab of your DA configuration. Make note of the following outputs:
-   ```
+   ```text
    access_host_or_ip
    dns_host_or_ip
    nfs_host_or_ip_path
@@ -104,13 +104,13 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    ```
    Where access_host_or_ip is the IP for the jump server, and the powervs_instance_management_ip is the IP for the {{site.data.keyword.powerSys_notm}} instance.
 1. Now you can connect to the {{site.data.keyword.powerSys_notm}} instance via the following command. Make sure to replace the values of the placeholders with the values from your environment.
-   ```
+   ```sh
    ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh -W %h:%p root@<access_host_or_ip> -i <path_to_private_key>" root@<powervs_instance_management_ip> -i <path_to_private_key>
    ```
 1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard-plus-vsi).
 
    a. Add proxy settings in ~/.bashrc. As mentioned above, find the <proxy_host_or_ip_port> value in the outputs section of the deployment, and add the following entries at the end of the .bashrc file, and `source .bashrc`.
-   ```
+   ```text
    export http_proxy=http://<proxy_host_or_ip_port>:3128
    export https_proxy=http://<proxy_host_or_ip_port>:3128
    export HTTP_PROXY=http://<proxy_host_or_ip_port>:3128
@@ -118,18 +118,18 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    export no_proxy=161.0.0.0/0,10.0.0.0/8
    ```
    b. Mount file storage from VPC on PowerVS instance
-   ```
+   ```sh
    mkdir /nfs
    mount <nfs_host_or_ip_path> /nfs
    ```
 
    c. Config DNS on {{site.data.keyword.powerSys_notm}} instance. Add the dns_host_or_ip_path value at the top in the `/etc/resolv.conf` file.
-   ```
+   ```text
    nameserver dns_host_ip
    ```
 
    d. Now the {{site.data.keyword.powerSys_notm}} instance should have internet access. You can try:
-   ```
+   ```sh
    curl google.com
    ```
 
@@ -141,16 +141,16 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} instance, a MySQL database and a simple Nginx web server in podman containers.
 
 1. Login to the {{site.data.keyword.powerSys_notm}} instance, and install podman.
-   ```
+   ```text
    dnf install podman -y
    ```
 1. Start MySQL server
-   ```
+   ```sh
    podman run --name mysql-test-db -e MYSQL_ROOT_PASSWORD=<your-secret-password> -p 3306:3306 -d docker.io/ubuntu/mysql:latest
    ```
 1. Let's download a sample MySQL database. As mentioned in this [MySQL documentation page](https://dev.mysql.com/doc/employee/en/employees-installation.html), we can use the sample [Employees DB on GitHub](https://github.com/datacharmer/test_db).
 
-   ```
+   ```sh
    # create working directory
    mkdir projects && cd projects
    # Clone github project with sample MySQL test database
@@ -168,7 +168,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 
 1. Now let's set up a simple Nginx web server.
 
-   ```
+   ```sh
    mkdir /tmp/nginx-test && cd /tmp/nginx-test
    echo "Hello world from `hostname`" > /tmp/nginx-test/index.html
    chmod go+r index.html
@@ -178,7 +178,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 
    Now curl command should run successfully.
 
-   ```
+   ```sh
    # curl --noproxy '*' http://localhost:80
    Hello world from yy0417-pi-qs
    ```
@@ -194,7 +194,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 To create {{site.data.keyword.satelliteshort}} Connector on the IBM Cloud UI, click on Satellite -> Connectors, and then ‘Create connector’ button. Provide name, tag, Resource Group, IBM Cloud region, and create connector.
 
 Once it is created, note down the ID.
-   ```
+   ```text
    SATELLITE_CONNECTOR_ID=MY_CONNECTOR_ID
    ```
 
@@ -399,7 +399,7 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
       ![watsonx.ai studio add notebook](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-add-notebook.png){: caption="watsonx.ai studio add notebook" caption-side="bottom"}
 
    b. Install the package needed, add this command to the notebook cell.
-      ```
+      ```text
       !pip install mysql-connector-python
       ```
    c. The following test codes should work.
@@ -409,7 +409,7 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
 1. Access the Nginx server hosted on {{site.data.keyword.powerSys_notm}}
 
    a. Add the following command to the cell, replace the host and port with your host and port for the Nginx service
-   ```
+   ```text
    !curl http://<satellite-connector-private-host>:<Nginx-port>
    ```
 
