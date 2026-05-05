@@ -80,7 +80,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 1. Under Security tab, provide the API key or Trusted Profile ID from the [the prerequisite](#prereqs) step.
 1. In this tutorial, we will create a {{site.data.keyword.powerSys_notm}} instance with RHEL 9.2 image. Choose custom image for 'tshirt_size' on the 'Required' tab, and specify values for zone, prefix, SSH keys, and resource group name.
 1. Under Optional tab, choose 'Linux - RHEL9-SP2' for custom_profile_instance_boot_image, and edit the custom_profile JSON:
-   ```text
+   ```json
    {
    "sap_profile_id": null,
    "cores": "1",
@@ -141,7 +141,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} instance, a MySQL database and a simple Nginx web server in podman containers.
 
 1. Login to the {{site.data.keyword.powerSys_notm}} instance, and install podman.
-   ```text
+   ```sh
    dnf install podman -y
    ```
 1. Start MySQL server
@@ -179,7 +179,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
    Now curl command should run successfully.
 
    ```sh
-   # curl --noproxy '*' http://localhost:80
+   curl --noproxy '*' http://localhost:80
    Hello world from yy0417-pi-qs
    ```
 

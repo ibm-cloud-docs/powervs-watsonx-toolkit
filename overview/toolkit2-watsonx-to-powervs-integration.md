@@ -215,7 +215,7 @@ url= https://eu-de.ml.cloud.ibm.com/ml/v4/deployments/7057d8870/ai_service?versi
 The resp_config.json file defines the expected structured response format from an LLM that interacts with the Toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring easy integration with API layer.
 
 resp_config.json
-```text
+```json
 {
     "type": "agent",
     "sections": [
@@ -243,7 +243,7 @@ sections
 
 * First section:
 
-    ```text
+    ```json
     {
                 "type": "text",
                 "data": "I have found the following transactions based on your request."
@@ -254,7 +254,7 @@ sections
    - data: A string message informing the user about retrieved  transactions (editable for custom message).
 
 * Second section:
-    ```text
+    ```json
     {
                 "type": "table",
                 "data": []
@@ -277,7 +277,7 @@ sections
 * For example the first LLM model, llm_parames_config.json, might look like
 
 llm_params_config.json:
-```text
+```json
 {
   "input": "You are a developer writing SQL queries given natural language questions. The database contains a set of 3 tables. The schema of each table with description of the attributes is given. Write the SQL query given a natural language statement with names being not case sensitive
 Here are the 3 tables :
