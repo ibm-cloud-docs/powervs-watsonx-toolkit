@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-07-02"
+  years: 2025, 2026
+lastupdated: "2026-05-05"
 
 keywords: watsonx services
 
@@ -34,7 +34,7 @@ This tutorial shows the detailed steps on how to connect watsonx as-a-Service to
 
 IBM Cloud Services (eg. watsonx as-a-Service) are often multi-tenanted and run from a single Service Account making it difficult for them to consume privately owned services on customer workloads running on IBM Cloud. Typically, these services are targeted over a public network which for reasons of data privacy is unacceptable to our customer base.
 
-A proposed solution is to utilize the IBM Cloud [Satellite Connector Service](https://cloud.ibm.com/docs/satellite?topic=satellite-understand-connectors&interface=ui) to provide an accessible, secure tunnel between IBM Cloud Services and customer owned services such as database. Satellite Connector provides secure TLS tunneling between applications and services that need to communicate in hybrid and multi-cloud environments.
+A proposed solution is to utilize the IBM Cloud [Satellite Connector Service](/docs/satellite?topic=satellite-understand-connectors&interface=ui) to provide an accessible, secure tunnel between IBM Cloud Services and customer owned services such as database. Satellite Connector provides secure TLS tunneling between applications and services that need to communicate in hybrid and multi-cloud environments.
 
 This tutorial provides detailed steps to set up Satellite Connector for watsonx service to act as consumer to access services hosted on Power Virtual Servers (eg. database or web services). Here is the architecture for the demo.
 
@@ -107,7 +107,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    ```
    ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh -W %h:%p root@<access_host_or_ip> -i <path_to_private_key>" root@<powervs_instance_management_ip> -i <path_to_private_key>
    ```
-1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-solution-quickstart-next-steps).
+1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard-plus-vsi).
 
    a. Add proxy settings in ~/.bashrc. As mentioned above, find the <proxy_host_or_ip_port> value in the outputs section of the deployment, and add the following entries at the end of the .bashrc file, and `source .bashrc`.
    ```
@@ -203,28 +203,28 @@ Once it is created, note down the ID.
 {: #deploy-sc-agent}
 {: step}
 
-IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman. You can refer to the IBM Cloud docs for more details.
+IBM Cloud Docs has instructions how to [run the connector agent](/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman. You can refer to the IBM Cloud docs for more details.
 
 1. First, install ibmcloud CLI by following instructions in IBM Cloud doc. On RHEL linux, I run the following command.
-   ```
+   ```sh
    # install ibmcloud cli
    curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
    # install plugin container-registry(cr)
    ibmcloud plugin install cr
    ```
-1. Create the local configuration files as explained in IBM Cloud [documentation](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui).
+1. Create the local configuration files as explained in IBM Cloud [documentation](/docs/satellite?topic=satellite-run-agent-locally&interface=ui).
 
    a. Create a directory for the configuration files, in this example ~/agent/env-files
-   ```
+   ```sh
    mkdir -p ~/agent/env-files
    ```
 
    b. Create a file in the ~/agent/env-files directory called apikey with a single line value of your IBM Cloud API Key that can access the Satellite Connector.
-   ```
+   ```sh
    echo YOUR_API_KEY > ~/agent/env-files/apikey
    ```
    c. Create a file in the ~/agent/env-files directory called env.txt with the following values. Modify the SATELLITE_CONNECTOR_ID variable with your Satellite Connector ID. If you would like traffic to stay in your private network, you need to set SATELLITE_CONNECTOR_DIRECT_LINK_INGRESS. Refer to [Configuraing the request path from your connector agent](/docs/satellite?topic=satellite-connector-agent-path) for more details. I am using the private endpoint in us-south in this demo.
-   ```
+   ```sh
    # Create a file called env.txt
    cat <<EOF > ~/agent/env-files/env.txt
    SATELLITE_CONNECTOR_ID=YOUR_SATELLITE_CONNECTOR_ID
@@ -236,7 +236,7 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
 
 1. Pull the agent image
 
-   ```
+   ```sh
    # Log in to IBM Cloud and IBM Container Registry
    ibmcloud login --apikey YOUR_API_KEY
    ibmcloud cr region-set icr.io
@@ -247,7 +247,7 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
    ```
 
 1. Run the agent. Note that you may need the ':Z' access modifier to make sure that the container has the right permission to access the files.
-   ```
+   ```sh
    podman run -d --env-file ~/agent/env-files/env.txt -v ~/agent/env-files:/agent-env-files:Z icr.io/ibm/satellite-connector/satellite-connector-agent:latest
    # View podman containers:
    podman ps
@@ -292,7 +292,7 @@ In this section, we will use {{site.data.keyword.lakehouse_short}} as consumer t
 
 1. Once the service is provisioned, open the web console. There are a few screens to help you set up starter engine and COS bucket used by {{site.data.keyword.lakehouse_short}}.
 
-1. Follow [IBM documentation](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
+1. Follow [IBM documentation](https://www.ibm.com/docs/en/watsonxdata/standard/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
 
    a. Click Configurations on the left, and click on the Driver manager tile.
 

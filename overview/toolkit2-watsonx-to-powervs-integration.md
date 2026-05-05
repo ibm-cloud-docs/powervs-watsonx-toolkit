@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-07-03"
+  years: 2025, 2026
+lastupdated: "2026-05-05"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
@@ -361,7 +361,7 @@ The Json structure here constitutes the body of the request sent to watsonx.ai s
 ### Step 9: Set up satellite connector  and agent
 {: #step-9}
 
-In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the [IBM Satellite Connector documentation](https://cloud.ibm.com/docs/satellite?topic=satellite-create-connector&interface=ui).
+In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the [IBM Satellite Connector documentation](/docs/satellite?topic=satellite-create-connector&interface=ui).
 
 Below is a sample agent code for your reference, which connects to an Oracle DB on Power Virtual System. Please adjust this code as necessary to accommodate your preferred database.
 
