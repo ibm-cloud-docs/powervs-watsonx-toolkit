@@ -37,10 +37,10 @@ toc:
           links:
           - link:
               label: Power Virtual Server product guide
-              href: https://cloud.ibm.com/docs/power-iaas
+              href: /docs/power-iaas
           - link:
               label: Power Virtual Server deployment guide
-              href: https://cloud.ibm.com/docs/powervs-vpc
+              href: /docs/powervs-vpc
       - topicgroup:
           label: IBM watsonx
           links:

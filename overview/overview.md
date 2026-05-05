@@ -1,8 +1,8 @@
 ---
 
 copyright:
-   years: 2025, 2025
-lastupdated: "2025-04-30"
+   years: 2025, 2026
+lastupdated: "2026-05-05"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: powervs-watsonx-toolkit
 ## Why {{site.data.keyword.powerSys_notm}}
 {: #why-powervs}
 
-[{{site.data.keyword.IBM_notm}} Power](https://www.ibm.com/power) is a family of high-performance servers that are based on {{site.data.keyword.IBM_notm}} Power processors. {{site.data.keyword.IBM_notm}} Power is designed to support high-performance computing, large-scale data processing, and essential applications like ERP, CRM, and database systems. {{site.data.keyword.IBM_notm}} Power is known for its Reliability, Availability, and Scalability (RAS), performance and sustainability.
+[{{site.data.keyword.IBM_notm}} Power](https://www.ibm.com/products/power) is a family of high-performance servers that are based on {{site.data.keyword.IBM_notm}} Power processors. {{site.data.keyword.IBM_notm}} Power is designed to support high-performance computing, large-scale data processing, and essential applications like ERP, CRM, and database systems. {{site.data.keyword.IBM_notm}} Power is known for its Reliability, Availability, and Scalability (RAS), performance and sustainability.
 
 [{{site.data.keyword.powerSysFull}} (PowerVS)](https://www.ibm.com/products/power-virtual-server) is an {{site.data.keyword.IBM_notm}} Power server Infrastructure-as-a-Service (IaaS) offering in {{site.data.keyword.cloud_notm}}. {{site.data.keyword.powerSys_notm}} resources reside in {{site.data.keyword.IBM_notm}} data centers with separate networks and direct-attached storage. The internal networks are fenced but offer connectivity options to {{site.data.keyword.cloud_notm}} infrastructure or private cloud environments. This infrastructure design enables {{site.data.keyword.powerSys_notm}} to maintain key enterprise software certification and support as the {{site.data.keyword.powerSys_notm}} architecture is identical to certified private cloud infrastructure.
 

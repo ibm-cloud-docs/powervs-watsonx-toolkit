@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-07-03"
+  years: 2025, 2026
+lastupdated: "2026-05-05"
 
 keywords: Power Virtual Server, IBM Power Virtual Server, watsonx, Toolkit, Artificial Intelligence, AI
 
@@ -101,7 +101,7 @@ For a different version of Linux you will have to install the corresponding pack
 ### Step 2: Clone the Toolkit repo
 {: #step-2}
 
-```
+```sh
 git clone https://github.com/IBM/PowerVS_watsonx_SatelliteConnectorBasedToolkit.git
 ```
 
@@ -118,12 +118,12 @@ You can do this in several ways:
 {: #step-4}
 
 Install packages from requirements.txt
-```
+```sh
 pip install -r requirements.txt
 ```
 
 Requirements.txt
-```
+```text
 # Core packages
 flask
 gevent
@@ -152,7 +152,7 @@ By default, Toolkit supports all three databases: Oracle, PostgreSQL, and SAP HA
 
 Ensure all packages are installed correctly by listing installed packages:
 
-```
+```sh
 pip list
 ```
 
@@ -164,7 +164,7 @@ Go to the folder “watsonx-integration-server” open the configuration file �
 
 Config.ini
 
-```
+```text
 [apiserver]
 port=2005
 
@@ -215,7 +215,7 @@ url= https://eu-de.ml.cloud.ibm.com/ml/v4/deployments/7057d8870/ai_service?versi
 The resp_config.json file defines the expected structured response format from an LLM that interacts with the Toolkit. Defining the format allows an LLM to generate structured, machine-readable responses, ensuring easy integration with API layer.
 
 resp_config.json
-```
+```json
 {
     "type": "agent",
     "sections": [
@@ -243,7 +243,7 @@ sections
 
 * First section:
 
-    ```
+    ```json
     {
                 "type": "text",
                 "data": "I have found the following transactions based on your request."
@@ -254,7 +254,7 @@ sections
    - data: A string message informing the user about retrieved  transactions (editable for custom message).
 
 * Second section:
-    ```
+    ```json
     {
                 "type": "table",
                 "data": []
@@ -277,7 +277,7 @@ sections
 * For example the first LLM model, llm_parames_config.json, might look like
 
 llm_params_config.json:
-```
+```json
 {
   "input": "You are a developer writing SQL queries given natural language questions. The database contains a set of 3 tables. The schema of each table with description of the attributes is given. Write the SQL query given a natural language statement with names being not case sensitive
 Here are the 3 tables :
@@ -361,11 +361,11 @@ The Json structure here constitutes the body of the request sent to watsonx.ai s
 ### Step 9: Set up satellite connector  and agent
 {: #step-9}
 
-In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the [IBM Satellite Connector documentation](https://cloud.ibm.com/docs/satellite?topic=satellite-create-connector&interface=ui).
+In this NLP2SQL use case requires the agent to establish a connection with the database located on {{site.data.keyword.powerSys_notm}} via a Satellite Connector. For guidance on creating and operating a satellite connector agent, please consult the [IBM Satellite Connector documentation](/docs/satellite?topic=satellite-create-connector&interface=ui).
 
 Below is a sample agent code for your reference, which connects to an Oracle DB on Power Virtual System. Please adjust this code as necessary to accommodate your preferred database.
 
-```
+```python
 def sqlexecute(dbuser,dbpwd,database,dbhost,dbport,dbquery):
 
   import os
@@ -394,7 +394,7 @@ def sqlexecute(dbuser,dbpwd,database,dbhost,dbport,dbquery):
 
 Go to the folder “watsonx-integration-server” and run flask application as shown below :
 
-```
+```sh
 python flask_api.py
 ```
 

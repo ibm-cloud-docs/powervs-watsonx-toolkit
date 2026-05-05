@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-07-02"
+  years: 2025, 2026
+lastupdated: "2026-05-05"
 
 keywords: watsonx services
 
@@ -34,7 +34,7 @@ This tutorial shows the detailed steps on how to connect watsonx as-a-Service to
 
 IBM Cloud Services (eg. watsonx as-a-Service) are often multi-tenanted and run from a single Service Account making it difficult for them to consume privately owned services on customer workloads running on IBM Cloud. Typically, these services are targeted over a public network which for reasons of data privacy is unacceptable to our customer base.
 
-A proposed solution is to utilize the IBM Cloud [Satellite Connector Service](https://cloud.ibm.com/docs/satellite?topic=satellite-understand-connectors&interface=ui) to provide an accessible, secure tunnel between IBM Cloud Services and customer owned services such as database. Satellite Connector provides secure TLS tunneling between applications and services that need to communicate in hybrid and multi-cloud environments.
+A proposed solution is to utilize the IBM Cloud [Satellite Connector Service](/docs/satellite?topic=satellite-understand-connectors&interface=ui) to provide an accessible, secure tunnel between IBM Cloud Services and customer owned services such as database. Satellite Connector provides secure TLS tunneling between applications and services that need to communicate in hybrid and multi-cloud environments.
 
 This tutorial provides detailed steps to set up Satellite Connector for watsonx service to act as consumer to access services hosted on Power Virtual Servers (eg. database or web services). Here is the architecture for the demo.
 
@@ -74,13 +74,13 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 [This documentation page](/docs/powervs-vpc?topic=powervs-vpc-deploy) highlights the steps to use the deployable architecture, and I will show you how to deploy Linux instance using the Quickstart DA.
 
 1. Log in to {{site.data.keyword.cloud_notm}} and search for 'Power Virtual Server with VPC landing zone' in the Catalog.
-![{{site.data.keyword.powerSys_notm}} Deployable Architecture](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-da.png){: caption="{{site.data.keyword.powerSys_notm}} Deployable Architecture" caption-side="bottom"}
+    ![{{site.data.keyword.powerSys_notm}} Deployable Architecture](../images/tutorial-watsonx-data-to-powervs/tutorial-watsonx-to-powervs-da.png){: caption="{{site.data.keyword.powerSys_notm}} Deployable Architecture" caption-side="bottom"}
 1. Choose 'Create a new architecture' with the 'Quickstart' variation, and click 'Add to project'.
 1. Choose the project you would like to use or create a new project, and provide the name for the configuration.
 1. Under Security tab, provide the API key or Trusted Profile ID from the [the prerequisite](#prereqs) step.
 1. In this tutorial, we will create a {{site.data.keyword.powerSys_notm}} instance with RHEL 9.2 image. Choose custom image for 'tshirt_size' on the 'Required' tab, and specify values for zone, prefix, SSH keys, and resource group name.
 1. Under Optional tab, choose 'Linux - RHEL9-SP2' for custom_profile_instance_boot_image, and edit the custom_profile JSON:
-   ```
+   ```json
    {
    "sap_profile_id": null,
    "cores": "1",
@@ -96,7 +96,7 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 1. Take the default for other fields, and click 'Save'.
 1. Validate the configuration, approve and deploy. The environment will be deployed automatically. As you can see from the [Quickstart DA](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard-plus-vsi) diagram, it creates Edge VPC and PowerVS workspace. In Edge VPC, it creates Bastion host (jump server) in management security group, and proxy server in network service security group. It also creates a {{site.data.keyword.powerSys_notm}} instance in the {{site.data.keyword.powerSys_notm}} workspace. Other necessary components to connect {{site.data.keyword.powerSys_notm}} workspace with IBM Cloud resources and secure the environment are also created, for example, Transit Gateway, VPN, VPE, etc.
 1. Once the Quickstart DA finishes, you have the {{site.data.keyword.powerSys_notm}} environment set up. You can find the details of the resources on the Outputs tab of your DA configuration. Make note of the following outputs:
-   ```
+   ```text
    access_host_or_ip
    dns_host_or_ip
    nfs_host_or_ip_path
@@ -104,13 +104,13 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    ```
    Where access_host_or_ip is the IP for the jump server, and the powervs_instance_management_ip is the IP for the {{site.data.keyword.powerSys_notm}} instance.
 1. Now you can connect to the {{site.data.keyword.powerSys_notm}} instance via the following command. Make sure to replace the values of the placeholders with the values from your environment.
-   ```
+   ```sh
    ssh -A -o ServerAliveInterval=60 -o ServerAliveCountMax=600 -o ProxyCommand="ssh -W %h:%p root@<access_host_or_ip> -i <path_to_private_key>" root@<powervs_instance_management_ip> -i <path_to_private_key>
    ```
-1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-solution-quickstart-next-steps).
+1. For the Quickstart DA, make sure to connect to {{site.data.keyword.powerSys_notm}} instance and follow the [Quickstart next steps](/docs/powervs-vpc?topic=powervs-vpc-deploy-arch-ibm-pvs-inf-standard-plus-vsi).
 
    a. Add proxy settings in ~/.bashrc. As mentioned above, find the <proxy_host_or_ip_port> value in the outputs section of the deployment, and add the following entries at the end of the .bashrc file, and `source .bashrc`.
-   ```
+   ```text
    export http_proxy=http://<proxy_host_or_ip_port>:3128
    export https_proxy=http://<proxy_host_or_ip_port>:3128
    export HTTP_PROXY=http://<proxy_host_or_ip_port>:3128
@@ -118,18 +118,18 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
    export no_proxy=161.0.0.0/0,10.0.0.0/8
    ```
    b. Mount file storage from VPC on PowerVS instance
-   ```
+   ```sh
    mkdir /nfs
    mount <nfs_host_or_ip_path> /nfs
    ```
 
    c. Config DNS on {{site.data.keyword.powerSys_notm}} instance. Add the dns_host_or_ip_path value at the top in the `/etc/resolv.conf` file.
-   ```
+   ```text
    nameserver dns_host_ip
    ```
 
    d. Now the {{site.data.keyword.powerSys_notm}} instance should have internet access. You can try:
-   ```
+   ```sh
    curl google.com
    ```
 
@@ -141,16 +141,16 @@ You can either provision the {{site.data.keyword.powerSys_notm}} environment man
 I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} instance, a MySQL database and a simple Nginx web server in podman containers.
 
 1. Login to the {{site.data.keyword.powerSys_notm}} instance, and install podman.
-   ```
+   ```sh
    dnf install podman -y
    ```
 1. Start MySQL server
-   ```
+   ```sh
    podman run --name mysql-test-db -e MYSQL_ROOT_PASSWORD=<your-secret-password> -p 3306:3306 -d docker.io/ubuntu/mysql:latest
    ```
 1. Let's download a sample MySQL database. As mentioned in this [MySQL documentation page](https://dev.mysql.com/doc/employee/en/employees-installation.html), we can use the sample [Employees DB on GitHub](https://github.com/datacharmer/test_db).
 
-   ```
+   ```sh
    # create working directory
    mkdir projects && cd projects
    # Clone github project with sample MySQL test database
@@ -168,7 +168,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 
 1. Now let's set up a simple Nginx web server.
 
-   ```
+   ```sh
    mkdir /tmp/nginx-test && cd /tmp/nginx-test
    echo "Hello world from `hostname`" > /tmp/nginx-test/index.html
    chmod go+r index.html
@@ -178,8 +178,8 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 
    Now curl command should run successfully.
 
-   ```
-   # curl --noproxy '*' http://localhost:80
+   ```sh
+   curl --noproxy '*' http://localhost:80
    Hello world from yy0417-pi-qs
    ```
 
@@ -194,7 +194,7 @@ I will set up two sample workloads on the {{site.data.keyword.powerSys_notm}} in
 To create {{site.data.keyword.satelliteshort}} Connector on the IBM Cloud UI, click on Satellite -> Connectors, and then ‘Create connector’ button. Provide name, tag, Resource Group, IBM Cloud region, and create connector.
 
 Once it is created, note down the ID.
-   ```
+   ```text
    SATELLITE_CONNECTOR_ID=MY_CONNECTOR_ID
    ```
 
@@ -203,28 +203,28 @@ Once it is created, note down the ID.
 {: #deploy-sc-agent}
 {: step}
 
-IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman. You can refer to the IBM Cloud docs for more details.
+IBM Cloud Docs has instructions how to [run the connector agent](/docs/satellite?topic=satellite-run-agent-locally&interface=ui) in docker. In this section, I will set up the agent on {{site.data.keyword.powerSys_notm}} instance with RHEL 9.x using podman. You can refer to the IBM Cloud docs for more details.
 
 1. First, install ibmcloud CLI by following instructions in IBM Cloud doc. On RHEL linux, I run the following command.
-   ```
+   ```sh
    # install ibmcloud cli
    curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
    # install plugin container-registry(cr)
    ibmcloud plugin install cr
    ```
-1. Create the local configuration files as explained in IBM Cloud [documentation](https://cloud.ibm.com/docs/satellite?topic=satellite-run-agent-locally&interface=ui).
+1. Create the local configuration files as explained in IBM Cloud [documentation](/docs/satellite?topic=satellite-run-agent-locally&interface=ui).
 
    a. Create a directory for the configuration files, in this example ~/agent/env-files
-   ```
+   ```sh
    mkdir -p ~/agent/env-files
    ```
 
    b. Create a file in the ~/agent/env-files directory called apikey with a single line value of your IBM Cloud API Key that can access the Satellite Connector.
-   ```
+   ```sh
    echo YOUR_API_KEY > ~/agent/env-files/apikey
    ```
    c. Create a file in the ~/agent/env-files directory called env.txt with the following values. Modify the SATELLITE_CONNECTOR_ID variable with your Satellite Connector ID. If you would like traffic to stay in your private network, you need to set SATELLITE_CONNECTOR_DIRECT_LINK_INGRESS. Refer to [Configuraing the request path from your connector agent](/docs/satellite?topic=satellite-connector-agent-path) for more details. I am using the private endpoint in us-south in this demo.
-   ```
+   ```sh
    # Create a file called env.txt
    cat <<EOF > ~/agent/env-files/env.txt
    SATELLITE_CONNECTOR_ID=YOUR_SATELLITE_CONNECTOR_ID
@@ -236,7 +236,7 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
 
 1. Pull the agent image
 
-   ```
+   ```sh
    # Log in to IBM Cloud and IBM Container Registry
    ibmcloud login --apikey YOUR_API_KEY
    ibmcloud cr region-set icr.io
@@ -247,7 +247,7 @@ IBM Cloud Docs has instructions how to [run the connector agent](https://cloud.i
    ```
 
 1. Run the agent. Note that you may need the ':Z' access modifier to make sure that the container has the right permission to access the files.
-   ```
+   ```sh
    podman run -d --env-file ~/agent/env-files/env.txt -v ~/agent/env-files:/agent-env-files:Z icr.io/ibm/satellite-connector/satellite-connector-agent:latest
    # View podman containers:
    podman ps
@@ -292,7 +292,7 @@ In this section, we will use {{site.data.keyword.lakehouse_short}} as consumer t
 
 1. Once the service is provisioned, open the web console. There are a few screens to help you set up starter engine and COS bucket used by {{site.data.keyword.lakehouse_short}}.
 
-1. Follow [IBM documentation](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
+1. Follow [IBM documentation](https://www.ibm.com/docs/en/watsonxdata/standard/2.1.x?topic=source-mysql) to add MySQL driver to watsonx.data.
 
    a. Click Configurations on the left, and click on the Driver manager tile.
 
@@ -399,7 +399,7 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
       ![watsonx.ai studio add notebook](../images/tutorial-watsonx-ai-to-powervs/watsonx-ai-to-powervs-add-notebook.png){: caption="watsonx.ai studio add notebook" caption-side="bottom"}
 
    b. Install the package needed, add this command to the notebook cell.
-      ```
+      ```text
       !pip install mysql-connector-python
       ```
    c. The following test codes should work.
@@ -409,7 +409,7 @@ In this section, we will use watsonx.ai service as consumer to connect to the My
 1. Access the Nginx server hosted on {{site.data.keyword.powerSys_notm}}
 
    a. Add the following command to the cell, replace the host and port with your host and port for the Nginx service
-   ```
+   ```text
    !curl http://<satellite-connector-private-host>:<Nginx-port>
    ```
 
